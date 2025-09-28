@@ -1,0 +1,53 @@
+/* Grid System */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Note for me: this is for the spacing between columns */
+}
+
+/* Columns (Default: full width on extra small screens) */
+.col-xs-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* Medium screens (tabletand small devices) */
+@media (min-width: 768px) {
+  
+  .col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-md-4 {
+    flex: 1 1 33.33%;
+    max-width: 33.33%;
+  }
+  
+  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+
+ 
+
+ /* Styleguide-only grid for card examples */
+.sg-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sg-grid .card {
+  flex: 0 0 33.33%;  /* 3 per row */
+  max-width: 33.33%;
+}
+
+ 

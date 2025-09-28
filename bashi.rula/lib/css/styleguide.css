@@ -7,6 +7,11 @@ box-sizing: border-box;
  --color-neutral-light:#eee; 
  --color-neutral-medium:#999; 
  --color-neutral-dark:#555; 
+
+  --color-main-light: #64379730;
+  --color-main-medium: #64379747;
+  --color-main-dark: #64379770;
+
  --color-black:#000;
  --color-white:#fff;
 
@@ -76,6 +81,29 @@ a:hover {
 	padding-left: 0;
 
 }
+
+.nav a {
+	display: block;
+	padding:0.2em 0.5em ;
+}
+
+.nav a:hover {
+	background-color: var(--color-main-medium);
+	color: var(--color-white);
+	text-decoration: none;
+}
+
+
+.nav-flex ul {
+  display: flex;
+
+}
+
+.nav-flex li {
+  flex: 1;
+  text-align: center;
+}
+ 
 
 
 .navbar {
