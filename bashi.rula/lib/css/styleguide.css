@@ -68,7 +68,7 @@ a:hover {
 .flex-none {flex: 0 0 auto; }
 
 .flex-align-center { align-items:center; }
-.flex-justify-center {justify-content: center;}
+.flex-justify-center {justify-content: left;}
 
 
 
@@ -206,7 +206,7 @@ a:hover {
 
 .card a { text-decoration: none; color: inherit; display: block; }
 .card img { width: 100%; height: auto; border-radius: .75rem; display: block; }
-.card h3 { margin: .6rem 0 0; font-size: 1.05rem; text-align: center; }
+.card h3 { margin: .6rem 0 0; font-size: 1.05rem; text-align: left; }
 
 .product .price { font-weight: 700; margin: .4rem 0; }
 .product .button { width: 100%; }
