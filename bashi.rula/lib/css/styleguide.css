@@ -93,17 +93,109 @@ a:hover {
 	text-decoration: none;
 }
 
+.nav .active a {
+	background-color: var(--color-main-light);
+	color: inherit;
+	text-decoration: none;
+}
 
+
+
+.nav-material ul,
+.nav-pills ul,
+.nav-stretch ul,
 .nav-flex ul {
   display: flex;
 
 }
 
-.nav-flex li {
-  flex: 1;
+
+.nav-pills a {
+	border-radius: 2em;
+	padding: 0.5em 1em;
+}
+
+.nav-crumbs ul {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0;
+  margin: 0;
+}
+
+
+ 
+ .nav-crumbs li:not(:first-child)::before {
+  content: '/';
+  margin: 0 0.5em;
+  color: var(--color-neutral-medium);
+}
+
+.nav-crumbs li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-crumbs a {
+  display: inline;    
+  padding: 0.5em 1em;    
+}
+ 
+ .nav-crumbs .active a,
+ .nav-crumbs a:hover {
+	background-color: transparent;
+	color: inherit;
+	text-decoration: underline;
+}
+
+
+
+
+.nav-material li,
+.nav-stretch li {
+  flex: 1 1 auto;
   text-align: center;
 }
  
+ 
+
+
+.nav-material a {
+  padding: 0.5em 1em;  
+  position: relative  
+}
+
+
+
+.nav-material a:hover {
+	background-color:var(--color-neutral-light);
+	color:inherit;
+}
+
+
+
+.nav-material a::after {
+	content:'';
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:0;
+	background-color:var(--color-main-medium);
+	transition: all 0.3s;
+ 
+}
+ 
+.nav-material .active a {
+	background-color: transparent;
+	color: inherit;
+ 
+}
+.nav-material .active a::after {
+	height:4px;
+ 
+}
+
 
 
 .navbar {
@@ -133,6 +225,13 @@ a:hover {
 
 
  
+
+
+
+
+
+
+
 /*CARD*/
 
 .card {
@@ -147,12 +246,12 @@ a:hover {
 }
 
 .card.soft {
-	border-radius: 0.5em;
+	border-radius: 0em;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .card.hard {
-	border-radius: 0.2em;
+	border-radius: 0em;
 	border: 2px solid var(--color-neutral-medium);
 }
 
@@ -205,7 +304,7 @@ a:hover {
 }
 
 .card a { text-decoration: none; color: inherit; display: block; }
-.card img { width: 100%; height: auto; border-radius: .75rem; display: block; }
+.card img { width: 100%; height: auto; border-radius: 0rem; display: block; }
 .card h3 { margin: .6rem 0 0; font-size: 1.05rem; text-align: left; }
 
 .product .price { font-weight: 700; margin: .4rem 0; }
@@ -215,13 +314,26 @@ a:hover {
   margin: 2rem auto; 
   padding: 1rem; 
   text-align: center; 
-  border-radius: 1rem; 
+  border-radius: 0rem; 
   background: #f2f0f8; 
 }
 
 
 
+/*Figure*/
 
 
+.figure {
+	margin: 0;
+	background-color: var(--color-white);
+}
 
+.figure img {
+	width: 100%;
+	vertical-align:text-bottom; 
+}
+
+.figure figcaption {
+	padding:1em;
+}
 

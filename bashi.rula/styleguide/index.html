@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../lib/css/gridsystem.css">
 
 
-
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 
@@ -129,52 +129,211 @@
 		<h2>View Window</h2> 
 	</div>
 
-	<div class="container"> 
+	<div class="container" id="navigations"> 
   <h2>Navigations</h2> 
+
+
+  <script>
+  	const makeNav = (classes='') => {
+  		const links =  ['Home','Blends','Discounts','Accessories','About'];
+  		let ran = Math.floor(Math.random()*links.length);
+  		document.write(`
+  		<div>
+			    <nav class="${classes}">
+			      <ul>
+  					${links.reduce((r,o,i)=>{
+  						return r+`<li class=${ran==i?'active':''}><a href="#">${o}</a></li>`;
+  						},'')}
+			         
+			      </ul>
+			    </nav>
+			  </div>
+  		`);
+  	}
+  </script>
 
   <div class="card soft">
     <h3>Basic Nav</h3>
-    <nav class="nav">
-      <ul>
-        <li><a href="#">Link 1</a></li>
-        <li><a href="#">Link 2</a></li>
-        <li><a href="#">Link 3</a></li>
-        <li><a href="#">Link 4</a></li>
-      </ul>
-    </nav>
+    <script>makeNav('nav')</script>
   </div>
+
+
 
   <div class="card soft">
     <h3>Flex Nav</h3>
-    <nav class="nav nav-flex">
-      <ul>
-        <li><a href="#">Link 1</a></li>
-        <li><a href="#">Link 2</a></li>
-        <li><a href="#">Link 3</a></li>
-        <li><a href="#">Link 4</a></li>
-      </ul>
-    </nav>
+    <script>makeNav('nav nav-flex')</script>
+  </div>
+ 
+ 
+  <div class="card soft">
+    <h3>Stretch Nav</h3>
+    <script>makeNav('nav nav-stretch')</script>
   </div>
  
 
+  <div class="card soft">
+    <h3>Pills Nav</h3>
+    <script>makeNav('nav nav-pills')</script>
+	</div>	
+
+
+	<div class="card soft">
+		 <h3>Crumbs Nav</h3>
+		 <script>makeNav('nav nav-crumbs')</script>
+  </div>
+
+
+	<div class="card soft">
+		 <h3>Material Nav</h3>
+		 <script>makeNav('nav nav-material')</script>
+  </div>
+
+  <script>
+  	$("#navigations a").on("click",function(e){
+  		e.preventDefault();
+  		$(this).closest("li").addClass("active")
+  		.siblings().removeClass("active")
+  	})
+  </script>
+
+
+
+
+
+
+
+
+
+	<h2 id="figures">Figures</h2> 
+
+	<div class="Card">
+	<h3>Basic Figure</h3> 
+
+		<figure class="figure">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>Product</figcaption>
+		</figure>
+		</div>
+
+
+
+
+
+<h3>Figure Grid</h3>
+		<div class="grid gap">
+		<div class="col-xs-12 col-md-3">
+			<figure class="figure">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>Product</figcaption>
+		</figure>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<figure class="figure">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>Product</figcaption>
+		</figure>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<figure class="figure">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>Product</figcaption>
+		
+		</figure>
+		</div>
+	</div>
  
+ 
+
+	<h3>Product Grid</h3>
+		<div class="grid gap">
+		<div class="col-xs-12 col-md-3">
+			<figure class="figure product">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>
+				<div>Product Name</div>
+				<div>$3.99</div>
+			</figcaption>
+			
+
+		</figure>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<figure class="figure product">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>
+				<div>Product Name</div>
+				<div>$3.99</div>
+			</figcaption>
+		</figure>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<figure class="figure product">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>
+				<div>Product Name</div>
+				<div>$3.99</div>
+			</figcaption>
+		
+		</figure>
+		</div>
+	</div>
+
+
+
+			<h3>Product Overlay</h3>
+		<div class="grid gap">
+		<div class="col-xs-12 col-md-3">
+		<div class="caption-body"></div>
+			<figure class="figure product-overlay">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>
+				<div>Product Name</div>
+				<div>$3.99</div>
+			</figcaption>
+			
+
+		</figure>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<figure class="figure product-overlay">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>
+			<div class="caption-body"></div>
+				<div>Product Name</div>
+				<div>$3.99</div>
+			</figcaption>
+		</figure>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<figure class="figure product-overlay">
+			<img src="https://rulancia.com/aau/wnm608/bashi.rula/img/sample.png" alt="">
+			<figcaption>
+			<div class="caption-body"></div>
+				<div>Product Name</div>
+				<div>$3.99</div>
+			</figcaption>
+		
+		</figure>
+		</div>
+	</div>
+
+</div>
+
 
 	<div class="container"> 
 		<h2>Grid System</h2> 
 	</div>
+ 
 
 	<div class="container"> 
 		<h2>Flex System</h2> 
 	</div>
 
+  
 	<div class="container"> 
 		<h2>View Window</h2> 
 	</div>
  
-
- 
-
-
 
 </body>
 </html>
