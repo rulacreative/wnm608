@@ -1,42 +1,50 @@
-/* CSS RESET */ 
+
+
+/* === CSS RESET === */ 
 *, *::after,*::before {
 
 box-sizing: border-box;
 }
 :root {
- --color-neutral-light:#eee; 
- --color-neutral-medium:#999; 
- --color-neutral-dark:#555; 
+  --color-neutral-light: #f9f8fb;
+  --color-neutral-medium: #999;
+  --color-neutral-dark: #555;
 
-  --color-main-light: #64379730;
-  --color-main-medium: #64379747;
-  --color-main-dark: #64379770;
+  --color-main-light: #977da950;
+  --color-main-medium: #977da980;
+  --color-main-dark: #977da9;
 
- --color-black:#000;
- --color-white:#fff;
+  --color-black: #000;
+  --color-white: #fff;
 
- --header-height:3rem;
- --spacing:1rem;
+  --header-height: 3rem;
+  --spacing: 1rem;
 
-
---font-serif: Georgia, "Times New Roman", serif; 
---font-sans: Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 
 
 
 body {
+	background-color: #f9f8fb;
+	color: #333;
+	font-family: var(--font-sans);
+	line-height: 1.6;
 	margin:0;
 	font-size:100%;
-	font-family: var(--font-sans);  
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: var(--font-serif);  
+	font-family: var(--font-serif);
+	color: #2d2d2d;
 
 }
 
-
+p {
+  margin-bottom: 1rem;
+}
 
 
 a:hover {
@@ -48,7 +56,7 @@ a:hover {
 
 
 
-/* LAYOUT CLASSES */
+/* === LAYOUT CLASSES === */
 .container {
 	max-width: 1200px;
 	margin-right: auto;
@@ -72,7 +80,7 @@ a:hover {
 
 
 
-/* COMPONENT CLASSES*/
+/* === COMPONENT CLASSES === */
 
 .nav ul {
 	list-style-type:none;
@@ -232,7 +240,7 @@ a:hover {
 
 
 
-/*CARD*/
+/* === CARD === */
 
 .card {
 	background-color: var(--color-white);
@@ -320,7 +328,7 @@ a:hover {
 
 
 
-/*Figure*/
+/* === Figure === */
 
 
 .figure {
@@ -336,4 +344,142 @@ a:hover {
 .figure figcaption {
 	padding:1em;
 }
+
+
+
+
+/* === FORMS === */
+
+.form-input {
+	  display: inline-block;
+    background-color: transparent;
+    border-width: 0;
+    padding: .7em 1em;
+    font: inherit;
+    -webkit-appearance: none;
+    color: inherit;
+    width: 100%;
+    border-bottom: 1px solid var(--color-neutral-light);
+    outline: 0;
+}
+
+.form-input:focus {
+	border-bottom-color: var(--color-main-light);
+}
+
+.form-label {
+    padding-top: 1em;
+    font-size: 1em;
+    color: var(--color-neutral-medium);
+    display: block;
+    width: 100%;
+}
+
+
+/* === BUTTONS === */ 
+
+.button {
+  background-color: var(--color-main-dark);
+  color: var(--color-white);
+  padding: 0.7em 1.2em;
+  border: none;
+  border-radius: 0.3em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-main-medium);
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: var(--color-main-dark);
+  border: 2px solid var(--color-main-dark);
+}
+
+
+
+/* === FOOTER Style === */ 
+.footer-simple {
+  background-color: #f5f5f7;          /* light neutral */
+  border-top: 1px solid #d2d2d7;      /* thin divider line */
+  color: #6e6e73;                     /* Light gray text */
+  font-size: 0.9rem;
+  line-height: 1.6;
+  width: 100%;
+  padding: 1.5rem 0;
+}
+
+.footer-simple .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-simple p {
+  margin: 0;
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.footer-simple .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-simple .footer-links li {
+  position: relative;
+}
+
+.footer-simple .footer-links li:not(:last-child)::after {
+  content: "|";
+  color: #d2d2d7;
+  margin-left: 1rem;
+}
+
+.footer-simple .footer-links a {
+  color: #6e6e73;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-simple .footer-links a:hover {
+  color: #1d1d1f;                     /* darker gray on hover */
+}
+
+.footer-simple .region {
+  flex: 0 0 auto;
+  text-align: right;
+  color: #6e6e73;
+  font-size: 0.9rem;
+}
+
+/* === Responsive: stack neatly on mobile === */
+@media (max-width: 768px) {
+  .footer-simple .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .footer-simple .region {
+    text-align: left;
+  }
+}
+
+
+/* === Newsletter Section Spacing === */
+.newsletter {
+  margin-bottom: 3rem; /* Note for me: This adds extra space before footer */
+}
+
+
 

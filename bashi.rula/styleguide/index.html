@@ -11,37 +11,45 @@
 	<link rel="stylesheet" href="../lib/css/gridsystem.css">
 
 
+
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 
 
-	<header class="navbar">
-		<div class="container display-flex flex-align-center">
-  		<div class="flex-none">
-			    <h1>Styleguide</h1>
-			   
-  		</div>
-		  <div class="flex-stretch"></div>
-		  <nav class="flex-none nav">
+<!-- ==== Header Section === -->
 
-	
-		 	<ul class="display-flex">
-
-		 		<li><a href="#tableofcontents">Table of Contents</a></li>
- 	    </ul>
-  </nav>
-</div>
+<header class="navbar">
+  <div class="container display-flex flex-align-center">
+    <div class="flex-none">
+      <h1>Velorea</h1>
+    </div>
+    <div class="flex-stretch"></div>
+    <nav class="flex-none nav">
+      <ul class="display-flex">
+        <li><a href="#tableofcontents">Table of Contents</a></li>
+        <li><a href="#article1">Home</a></li>
+        <li><a href="#article2">Blends</a></li>
+        <li><a href="#article3">Discounts</a></li>
+        <li><a href="#article4">Accessories</a></li>
+        <li><a href="#article5">About</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 
+ 
 
 
 
+ 
+
+<!-- ==== Contents Section === -->
 
 <div class="container" id="tableofcontents"> 
 
-	<h2>Table of Contents</h2>
+	<h2>STYLE GUIDE |Table of Contents</h2>
 		<div class="card">
 			<nav class="nav">
 				<ul>
@@ -56,13 +64,19 @@
 					<li><a href="#navigations">Navigations</a></li>
 					<li><a href="#gridsystem">Grid System</a></li>
 					<li><a href="#flexsystem">Flex System</a></li>
+					<li><a href="#forms">Forms</a></li>
+					<ul>
+						<li>
+							<a href="inputs"></a>
+						</li>
+					</ul>
 				</ul>
 			</nav>
 		</div>
 </div>
 		
 
-
+<!-- ==== Typography Section === -->
 <div class="container" id="typography">
 		<h2>Typography</h2>
 		
@@ -77,7 +91,7 @@
 </div>
 
 
-
+<!-- ==== Paragraph Section === -->
 	<div class="card soft" id="paragraphs">
 		<h3> Paragraphs</h3>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae eveniet voluptatibus perferendis ducimus ullam architecto aliquam excepturi maiores nulla numquam vel quo, sed, aspernatur, a voluptatem eligendi, veritatis nesciunt corporis!</p>
@@ -88,9 +102,62 @@
 	</div>
 
 
+
+
+<!-- ==== Buttons Section === -->
+<div class="container" id="buttons">
+  <h2>Buttons</h2>
+  <div class="card soft">
+    <h3>Button Styles</h3>
+    <p>These are the main button styles to be used across Velorea.</p>
+
+    <div class="display-flex flex-align-center" style="gap: 1rem; flex-wrap: wrap;">
+      <button class="button">Primary Button</button>
+      <button class="button button-secondary">Secondary Button</button>
+      <button class="button" disabled>Disabled Button</button>
+    </div>
+
+
+  </div>
+</div>
+ 
+
+ <!-- ==== Cards Section === -->
+
 	<div class="container"> 
 		<h2>Cards</h2>
 
+
+
+<!-- ======= Velorea Product Card Example ======= -->
+<section class="container" id="product-cards">
+  <h2>Velorea Product Cards</h2>
+  <ul class="grid grid-4">
+    <li class="card product">
+      <a href="#">
+        <img src="../img/p1.png" alt="Lavender Calm tea blend">
+        <h3>Lavender Calm</h3>
+        <p>Floral, soothing</p>
+        <div class="price">$18</div>
+      </a>
+      <button class="button">Add to Cart</button>
+    </li>
+
+    <li class="card product">
+      <a href="#">
+        <img src="../img/p2.png" alt="Mint Focus tea blend">
+        <h3>Mint Focus</h3>
+        <p>Bright, refreshing</p>
+        <div class="price">$16</div>
+      </a>
+      <button class="button">Add to Cart</button>
+    </li>
+
+    
+  </ul>
+</section> 
+
+<!-- ==== General Card Examples === -->
 		<div class="grid gap">
 			<div class="col-xs-12 col-md-3">
 				<div class="card">Card</div>
@@ -116,18 +183,21 @@
 				<div class="card dark">Card Dark</div>
 			</div>
   		</div>
-	</div>
+	</div> 
 
 
+	<!-- ==== Promo Section === -->
 
+
+<section id="promo" class="promo-band">
+  <p><strong>Promo Section Example: Autumn Offer:</strong> 20% off selective sets — code <code>FALL20</code> → <a href="#">Shop Discounts</a></p>
+</section>
 
 
  
+ 
 
-
-	<div class="container"> 
-		<h2>View Window</h2> 
-	</div>
+<!-- ==== Navigation Section === -->
 
 	<div class="container" id="navigations"> 
   <h2>Navigations</h2> 
@@ -201,7 +271,7 @@
 
 
 
-
+<!-- ==== Figures Section === -->
 
 
 	<h2 id="figures">Figures</h2> 
@@ -319,7 +389,7 @@
 
 </div>
 
-
+ 
 	<div class="container"> 
 		<h2>Grid System</h2> 
 	</div>
@@ -334,6 +404,85 @@
 		<h2>View Window</h2> 
 	</div>
  
+<!-- ==== Forms Section === -->
+
+ .<div class="container" id="Forms">
+ 		<h2>Forms</h2>
+ 			<h2>Forms</h2>
+ 			<div class="card soft">
+
+ 				<h3>Default Inputs</h3> 
+ 				<form>
+ 					<input type="text"><br>
+ 					<input type="number"><br>
+ 					<input type="password"><br>
+ 					<input type="datetime-local"><br>
+ 					<input type="date"><br>
+ 					<input type="search"> 
+ 				</form>
+
+ 				<h3>Form Input</h3>
+ 				<form>
+ 					<input type="text" placeholder="text" class="form-input">
+ 					<input type="number" placeholder="number" class="form-input">
+ 					<input type="password" placeholder="password" class="form-input">
+ 					<input type="search" placeholder="search" class="form-input">
+ 				</form>
+
+ 				<h3>Form label</h3>
+ 				<form>
+ 					<label class="form-label">Example</label>
+ 					<input type="text" placeholder="text" class="form-input">
+ 					<label class="form-label">Example</label>
+ 					<input type="number" placeholder="number" class="form-input">
+ 					<label class="form-label">Example</label>
+ 					<input type="password" placeholder="password" class="form-input">
+ 					<label class="form-label">Example</label>
+ 					<input type="search" placeholder="search" class="form-input">
+
+ 				</form>
+
+
+ 				<h3>Form control</h3>
+ 				<form>
+ 					<div class="form-control">
+ 						<label class="form-label">Example</label>
+ 						<input type="text" placeholder="text" class="form-input">
+ 					</div>
+
+ 					<div class="form-control">
+ 						<label class="form-label">Example</label>
+ 						<input type="number" placeholder="number" class="form-input">
+ 					</div>
+
+ 					<div class="form-control">
+ 						<label class="form-label">Example</label>
+ 						<input type="password" placeholder="password" class="form-input">
+ 					</div>
+
+ 					<div class="form-control">
+ 						<label class="form-label">Example</label>
+ 						<input type="search" placeholder="search" class="form-input">
+ 					</div>
+	</div>
+
+
+<!-- ==== Footer Section === -->
+
+<footer class="footer-simple">
+  <div class="container">
+    <p>© 2025 Velorea. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#">Discounts</a></li>
+      <li><a href="#">Shipping</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
 
 </body>
 </html>
+
+
+
