@@ -256,6 +256,7 @@ a:hover {
 .card.soft {
 	border-radius: 0em;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	
 }
 
 .card.hard {
@@ -521,4 +522,39 @@ a:hover {
 
 .hidden {
   display: none;
+}
+
+
+
+/* === ALERTS === */
+.alert {
+  padding: 1rem 1.2rem;
+  border-radius: 0.4rem;
+  margin: 1rem 0;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.alert-info {
+  background-color: #e8f1fb;
+  border-left: 4px solid #007aff;
+  color: #004a99;
+}
+
+.alert-success {
+  background-color: #e8fbe8;
+  border-left: 4px solid #28a745;
+  color: #146c2e;
+}
+
+.alert-warning {
+  background-color: #fff4e5;
+  border-left: 4px solid #ff9800;
+  color: #663c00;
+}
+
+.alert-danger {
+  background-color: #fdecea;
+  border-left: 4px solid #e53935;
+  color: #7a1c1c;
 }
