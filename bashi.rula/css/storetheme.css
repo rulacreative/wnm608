@@ -78,6 +78,18 @@ body {
 }
 
 .product-overlay:hover figcaption{
-  opacity:1 ;
+  opacity:1;
 
   }
+
+
+.favorite label {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #999;
+ 
+}
+
+.favorite input:checked + label {
+  color:red;
+}
