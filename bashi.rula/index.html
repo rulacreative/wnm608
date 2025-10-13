@@ -64,7 +64,7 @@
 
  
 
- 
+
 
  
 <section id="blends" class="container">
@@ -166,4 +166,16 @@
 </body>
 </html>
 
+
+
+
+
+<script>
+  // Force refresh all images by appending version query (once per upload)
+  document.querySelectorAll("img").forEach(img => {
+    const url = new URL(img.src, window.location.origin);
+    url.searchParams.set("v", Date.now()); // unique timestamp
+    img.src = url.toString();
+  });
+</script>
 
