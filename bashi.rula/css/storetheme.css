@@ -252,6 +252,21 @@ body {
   display: none;
 }
 
+.card.product .button {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: block;
+  width: 80%;
+  margin: 0 auto 1rem;
+}
+
+.card.product:hover .button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
 
 /* LOGO LINK */
