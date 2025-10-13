@@ -154,6 +154,7 @@ li, a, input, button {
 .nav a {
 	display: block;
 	padding:0.2em 0.5em ;
+	text-decoration: none;
 }
 
 .nav a:hover {
@@ -483,10 +484,12 @@ li, a, input, button {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .button:hover {
   background-color: var(--color-main-medium);
+  text-decoration: none;
 }
 
 .button-secondary {
