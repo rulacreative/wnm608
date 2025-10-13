@@ -68,10 +68,7 @@
 }
 
 
-
-
-
-
+ 
 
 /* For future reference as needed: Flex-based column backup (not used on My website) */
 .col-xs-12 {
@@ -87,7 +84,7 @@
 
 
 
-/* ====== To Keep .col-md-* horizontal layout for Styleguide ====== */
+/* To Keep .col-md-* horizontal layout for Styleguide */
 .grid.gap {
   display: flex;
   flex-wrap: wrap;
