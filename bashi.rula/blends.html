@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velorea — Our Signature Tea Blends</title>
+
+  <!-- Adobe Fonts: The Seasons + Avenir LT Pro -->
+  <link rel="stylesheet" href="https://use.typekit.net/gok2yjy.css">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="lib/css/styleguide.css">
+  <link rel="stylesheet" href="css/gridsystem.css">
+  <link rel="stylesheet" href="css/storetheme.css"> 
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="container display-flex flex-align-center">
+      <div class="flex-none">
+          <h1>
+          <a href="https://rulancia.com/aau/wnm608/bashi.rula/" class="logo-link">
+            Velorea
+          </a>
+        </h1>
+
+
+         
+      </div>
+      <div class="flex-stretch"></div>
+      <nav class="flex-none nav">
+
+  
+      <ul class="display-flex">
+
+        <li><a href="https://rulancia.com/aau/wnm608/bashi.rula/">Home</a></li>
+
+
+        <li><a href="blends.html">Blends</a></li>
+        <li><a href="#article4">Accessories</a></li>
+        <li><a href="#article5">About</a></li>
+        <li><a href="styleguide/index.html">Style Guide</a></li>
+      </ul>
+  </nav>
+</div>
+</header>
+
+ 
+
+
+
+  <!-- HERO SECTION -->
+  <div class="view-window" style="background-image:url('img/teablends-hero.png')">
+    <div class="view-overlay">
+      <h1>Our Signature Blends</h1>
+      <p>Discover Velorea’s artisan tea collection — each crafted to awaken the senses and restore balance.</p>
+    </div>
+  </div>
+
+
+  <!-- PRODUCT GRID -->
+  <section class="container">
+    <h2>Luxury Wellness Blends</h2>
+    <ul class="grid grid-4">
+      <li class="card product">
+        <a href="#"><img alt="Lavender Calm" src="img/p1.png"><h3>Lavender Calm</h3><p>Soft floral notes to relax body and mind.</p><div class="price">$18</div></a>
+        <button class="button">Add to Cart</button>
+      </li>
+
+      <li class="card product">
+        <a href="#"><img alt="Mint Focus" src="img/p2.png"><h3>Mint Focus</h3><p>Cool mint that refreshes and sharpens focus.</p><div class="price">$16</div></a>
+        <button class="button">Add to Cart</button>
+      </li>
+
+      <li class="card product">
+        <a href="#"><img alt="Ginger Digest" src="img/p3.png"><h3>Ginger Digest</h3><p>Warm spice that supports calm digestion.</p><div class="price">$17</div></a>
+        <button class="button">Add to Cart</button>
+      </li>
+
+      <li class="card product">
+        <a href="#"><img alt="Chamomile Dream" src="img/p4.png"><h3>Chamomile Dream</h3><p>Golden calm in a cup — your bedtime ritual begins here.</p><div class="price">$15</div></a>
+        <button class="button">Add to Cart</button>
+      </li>
+
+      <li class="card product">
+        <a href="#"><img alt="Rose Harmony" src="img/p5.png"><h3>Rose Harmony</h3><p>Delicate rose for moments of inner peace.</p><div class="price">$19</div></a>
+        <button class="button">Add to Cart</button>
+      </li>
+
+      <li class="card product">
+        <a href="#"><img alt="Citrus Glow" src="img/p6.png"><h3>Citrus Glow</h3><p>Zesty citrus that uplifts and energizes.</p><div class="price">$17</div></a>
+        <button class="button">Add to Cart</button>
+      </li>
+
+      <li class="card product">
+        <a href="#"><img alt="Chai Tranquil" src="img/p7.png"><h3>Chai Tranquil</h3><p>Spiced warmth that comforts and grounds.</p><div class="price">$18</div></a>
+        <button class="button">Add to Cart</button>
+      </li>
+
+      <li class="card product">
+        <a href="#"><img alt="Jasmine Muse" src="img/p8.png"><h3>Jasmine Muse</h3><p>Fragrant jasmine that inspires calm focus.</p><div class="price">$20</div></a>
+        <button class="button">Add to Cart</button>
+      </li>
+    </ul>
+  </section>
+
+ 
+ 
+
+  <!-- FOOTER -->
+  <footer class="footer-simple">
+    <div class="container">
+      <p>© 2025 Velorea. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="blends.html">Blends</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+<script>
+  // Force refresh all images by appending version query (once per upload)
+  document.querySelectorAll("img").forEach(img => {
+    const url = new URL(img.src, window.location.origin);
+    url.searchParams.set("v", Date.now()); // unique timestamp
+    img.src = url.toString();
+  });
+</script>
