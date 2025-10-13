@@ -36,9 +36,6 @@ box-sizing: border-box;
 
 
 
-
-
-
 .view-window {
   position: relative;
   height: 70vh;  
@@ -496,6 +493,11 @@ li, a, input, button {
   background-color: transparent;
   color: var(--color-main-dark);
   border: 2px solid var(--color-main-dark);
+  padding: 0.7em 1.2em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+
 }
 
 

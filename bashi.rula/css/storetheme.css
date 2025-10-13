@@ -286,8 +286,20 @@ body {
 
 /* About Button to match the global button system */
 .about-band .about-btn {
-  padding: 0.7em 1.2em;    
-  font-size: 1rem;          
-  border-width: 2px;        
+  padding: 0.5em 0.5em;    
+  font-size: .85rem;          
+  border-width: 2px; 
+  width: 20%;
+  text-decoration: none ;
+
 }
 
+
+/* Join Velorea section */
+.newsletter {
+  text-align: center;
+}
+
+.newsletter form {
+  display: inline-block;
+  text-align: le
