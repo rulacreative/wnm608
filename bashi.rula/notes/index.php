@@ -148,7 +148,8 @@
 
     // Convert associative array to object
     $colorsObject = (object)$colorsAssociative;
-    // echo $colorsObject; // would give “Object” (we can’t echo objects directly)
+
+    // echo $colorsObject; // would give “Object” (as we can’t echo objects directly)
 
     echo "<hr>";
 
