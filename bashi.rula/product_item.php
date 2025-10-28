@@ -1,38 +1,36 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Product Item</title>
-    
-</head>
-
-
-
-<body>
+<?php
  
+  $id = $_GET['id'] ?? 'lavender-calm';
+  $page_title = "Velorea — Product";
+  include __DIR__ . "/parts/meta.php";
+  include __DIR__ . "/parts/navbar.php";
+?>
 
-    <?php include "parts/navbar.php"; ?>
-    <?php include "parts/meta.php"; ?>
+<main class="container">
+  <nav class="nav nav-crumbs">
+    <ul>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="product_list.php">Store</a></li>
+      <li><a href="#">Product</a></li>
+    </ul>
+  </nav>
 
+  <div class="grid gap md:gap-2 grid-2-1">
+    <figure class="card">
+      <img src="img/p1.png" alt="Product image">
+    </figure>
+    <article class="card soft">
+      <h2 class="h2">Sample Product Title</h2>
+      <p class="body">Short description of the product benefits and flavor profile.</p>
+      <p class="price h3">$18</p>
 
-<div class="container">
-    <div class="card soft">
-        <h2>Product Item</h2>
+      <form>
+        <label>Quantity</label>
+        <input type="number" min="1" value="1">
+        <button class="button">Add to Cart</button>
+      </form>
+    </article>
+  </div>
+</main>
 
-        <p>This is item #</p>
-
-
-
-
-    </div>
-</div>
-
-</body>
-</html>
-
-
- 
-
-
- 
+<?php include __DIR__ . "/parts/footer.php"; ?>
