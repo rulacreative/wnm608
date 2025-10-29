@@ -5,13 +5,22 @@
 ?>
 
 <main class="container">
-  <div class="card soft text-center">
+  <div class="card soft text-center" style="text-align:center;">
     <h2>Thank you!</h2>
     <p>Your purchase was successful. A confirmation email is on its way.</p>
     <p class="muted">Order #VLR-000123</p>
-    <div class="display-flex justify-center gap">
-      <a class="button" href="product_list.php">Continue Shopping</a>
-      <a class="button button-secondary" href="index.php">Return Home</a>
+    <div class="display-flex gap" style="justify-content:center;">
+
+      
+
+      <button class="button" type="button" onclick="window.location.href='blends.php'">  Continue Shopping
+      </button>
+ 
+      
+
+
+
+
     </div>
   </div>
 </main>

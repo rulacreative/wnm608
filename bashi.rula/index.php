@@ -5,21 +5,32 @@
   <div class="view-overlay">
     <h1>Relax. Refresh. Revive.</h1>
     <p>Luxury teas crafted for your mind, body, and soul.</p>
-    <a href="product_list.php" class="button">Shop Now</a>
+    <a href="blends.php" class="button">Shop Now</a>
   </div>
 </div>
 
 <section id="blends" class="container">
   <h2>Shop by Category</h2>
   <ul class="grid grid-3">
-    <li class="card"><a href="#"><img alt="Calming blends" src="img/face.png"><h3>Calming Blends</h3></a></li>
-    <li class="card"><a href="#"><img alt="Focus blends" src="img/body.png"><h3>Focus Blends</h3></a></li>
-    <li class="card"><a href="#"><img alt="Digestive blends" src="img/kits.png"><h3>Digestive Blends</h3></a></li>
+    <li class="card">
+
+    <a href="blends.php">
+
+
+     <img alt="Calming blends" src="img/face.png"><h3>Calming Blends</h3></a></li>
+    <li class="card">    
+      <a href="blends.php">
+
+
+<img alt="Focus blends" src="img/body.png"><h3>Focus Blends</h3></a></li>
+    <li class="card">
+      <a href="blends.php"> 
+      <img alt="Digestive blends" src="img/kits.png"><h3>Digestive Blends</h3></a></li>
   </ul>
 </section>
 
 <section id="discounts" class="promo-band">
-  <p><strong>Autumn Offer:</strong> 20% off selective sets — code <code>FALL20</code> → <a href="#">Shop Discounts</a></p>
+  <p><strong>Autumn Offer:</strong> 20% off selective sets — code <code>FALL20</code> → <a href="index.php">Shop Discounts</a></p>
 </section>
 
 <section class="container">
@@ -55,8 +66,10 @@
       We source our ingredients with care, blend them with intention, and design every detail — from scent to texture —
       to turn your daily cup into a small act of luxury and mindfulness.
     </p>
-    <a class="button button-secondary about-btn" href="#">Learn More</a>
+    <a class="button button-secondary about-btn" href="index.php">Learn More</a>
   </div>
+ 
+
 </section>
 
 <section class="container newsletter" aria-labelledby="news-h">

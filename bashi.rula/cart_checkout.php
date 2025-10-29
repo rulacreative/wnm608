@@ -32,8 +32,19 @@
   </form>
 
   <div class="display-flex gap">
-    <a class="button button-secondary" href="cart_review.php">Back to Cart</a>
-    <a class="button" href="purchase_confirmation.php">Place Order</a>
+     
+
+    <button class="button button-secondary" type="button" onclick="window.location.href='cart_review.php'">  Back to Cart
+    </button>
+
+    <button class="button" type="button" onclick="window.location.href='purchase_confirmation.php'">  Place Order
+    </button>
+
+
+
+
+
+
   </div>
 </main>
 

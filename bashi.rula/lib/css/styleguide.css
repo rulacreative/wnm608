@@ -449,7 +449,7 @@ li, a, input, button {
 
 .form-input {
 	  display: inline-block;
-    background-color: transparent;
+    background-color: white;
     border-width: 0;
     padding: .7em 1em;
     font: inherit;
@@ -478,13 +478,16 @@ li, a, input, button {
 .button {
   background-color: var(--color-main-dark);
   color: var(--color-white);
-  padding: 0.7em 1.2em;
-  border: none;
-  border-radius: 0.3em;
+  padding: 0.7em 3em;
+  border: 2px solid var(--color-main-dark);
+  border-radius: 3em;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease;
   text-decoration: none;
+  margin-right: .5em;
+  margin-bottom: 2.5em;
+  margin-left: .5em;
 }
 
 .button:hover {
@@ -496,10 +499,12 @@ li, a, input, button {
   background-color: transparent;
   color: var(--color-main-dark);
   border: 2px solid var(--color-main-dark);
-  padding: 0.7em 1.2em;
+  padding: 0.7em 3em;
   cursor: pointer;
   transition: background 0.3s ease;
-
+  margin-right: .5em;
+  margin-bottom: 2.5em;
+  margin-left: .5em;
 
 }
 
@@ -668,3 +673,7 @@ li, a, input, button {
   border-left: 4px solid #e53935;
   color: #7a1c1c;
 }
+
+
+
+

@@ -12,7 +12,7 @@
         <li><a href="/aau/wnm608/bashi.rula/blends.php">Blends</a></li>
 
         <li><a href="/aau/wnm608/bashi.rula/product_list.php">Product List</a> 
-        </li>s
+        </li>
         <li><a href="/aau/wnm608/bashi.rula/product_item.php">Product Item</a></li>
         <li><a href="/aau/wnm608/bashi.rula/cart_review.php">Cart Review</a></li>
         <li><a href="/aau/wnm608/bashi.rula/cart_checkout.php">Checkout</a></li>

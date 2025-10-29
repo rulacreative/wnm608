@@ -23,10 +23,16 @@
     </tfoot>
   </table>
 
-  <div class="display-flex gap">
-    <a class="button button-secondary" href="product_list.php">Continue Shopping</a>
-    <a class="button" href="cart_checkout.php">Proceed to Checkout</a>
-  </div>
-</main>
+   
+  <div style="margin-top: 2em;">
+
+
+  <button class="button" type="button" onclick="window.location.href='cart_checkout.php'">Proceed to Checkout</button>
+  <button class="button button-secondary" type="button" onclick="window.location.href='blends.php'">Continue Shopping</button>
+</div>
+
+ 
+
+ 
 
 <?php include __DIR__ . "/parts/footer.php"; ?>
