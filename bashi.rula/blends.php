@@ -18,6 +18,7 @@
     <li class="card product">
       <a href="product_item.php"><img alt="Lavender Calm" src="img/p1.png"><h3>Lavender Calm</h3><p>Soft floral notes to relax body and mind.</p><div class="price">$18</div></a>
       <button class="button">Add to Cart</button>
+      
     </li>
 
     <li class="card product">
