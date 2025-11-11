@@ -37,23 +37,24 @@
   <h2>Featured Products</h2>
   <ul class="grid grid-4">
     <li class="card product">
-      <a href="product_item.php"><img alt="Lavender Calm" src="img/p1.png"><h3>Lavender Calm</h3><p>Floral, soothing</p><div class="price">$18</div></a>
-      <button class="button">Add to Cart</button>
+      <a href="product_item.php?id=1"><img alt="Lavender Calm" src="images/p1.png"><h3>Lavender Calm</h3><p>Floral, soothing</p><div class="price">$18</div></a>
+      <button class="button" onclick="window.location.href='cart_review.php'">Add to Cart</button>
     </li>
     <li class="card product">
-      <a href="product_item.php"><img alt="Mint Focus" src="img/p2.png"><h3>Mint Focus</h3><p>Bright, refreshing</p><div class="price">$16</div></a>
-      <button class="button">Add to Cart</button>
+      <a href="product_item.php?id=2"><img alt="Mint Focus" src="images/p2.png"><h3>Mint Focus</h3><p>Bright, refreshing</p><div class="price">$16</div></a>
+      <button class="button" onclick="window.location.href='cart_review.php'">Add to Cart</button>
     </li>
     <li class="card product">
-      <a href="product_item.php"><img alt="Ginger Digest" src="img/p3.png"><h3>Ginger Digest</h3><p>Warm, supportive</p><div class="price">$17</div></a>
-      <button class="button">Add to Cart</button>
+      <a href="product_item.php?id=3"><img alt="Ginger Digest" src="images/p3.png"><h3>Ginger Digest</h3><p>Warm, supportive</p><div class="price">$17</div></a>
+      <button class="button" onclick="window.location.href='cart_review.php'">Add to Cart</button>
     </li>
     <li class="card product">
-      <a href="product_item.php"><img alt="Chamomile Dream" src="img/p4.png"><h3>Chamomile Dream</h3><p>Soft, bedtime</p><div class="price">$15</div></a>
-      <button class="button">Add to Cart</button>
+      <a href="product_item.php?id=4"><img alt="Chamomile Dream" src="images/p4.png"><h3>Chamomile Dream</h3><p>Soft, bedtime</p><div class="price">$15</div></a>
+      <button class="button" onclick="window.location.href='cart_review.php'">Add to Cart</button>
     </li>
   </ul>
 </section>
+
 
 <section id="about-velorea" class="about-band">
   <div class="container">
@@ -80,6 +81,10 @@
     <button class="button" type="submit">Subscribe</button>
   </form>
 </section>
+
+
+
+
 
 <?php include "parts/footer.php"; ?>
 

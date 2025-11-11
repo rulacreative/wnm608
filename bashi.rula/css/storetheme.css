@@ -303,3 +303,19 @@ body {
 .newsletter form {
   display: inline-block;
   text-align: le
+
+
+
+
+
+  .productlist {
+  text-decoration: none;
+  color: inherit;
+}
+
+.productlist:hover .figure.product {
+  box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+

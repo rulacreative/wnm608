@@ -1,19 +1,23 @@
 <?php
-  $page_title = "Velorea — Product List";
-  include __DIR__ . "/parts/meta.php";    
-  include __DIR__ . "/parts/navbar.php";
+include "parts/meta.php";
+include "parts/navbar.php";
+include_once "lib/php/functions.php";
+include_once "parts/templates.php";
 ?>
 
-<main class="container">
+<div class="container">
   <div class="card soft">
     <h2>Product List</h2>
-    <ul>
-      <li><a href="product_item.php">Product 1</a></li>
-      <li><a href="product_item.php">Product 2</a></li>
-      <li><a href="product_item.php">Product 3</a></li>
-      <li><a href="product_item.php">Product 4</a></li>
-    </ul>
-  </div>
-</main>
 
-<?php include __DIR__ . "/parts/footer.php"; ?>  
+    <?php
+    $result = makeQuery(
+      makeConn(),
+      "SELECT * FROM products ORDER BY id ASC"
+    );
+
+    echo "<div class='grid gap grid-4'>".
+      array_reduce($result,'productListTemplate').
+      "</div>";
+    ?>
+  </div>
+</div>

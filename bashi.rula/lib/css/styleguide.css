@@ -5,6 +5,10 @@
 
 box-sizing: border-box;
 }
+ 
+
+
+
 :root {
   --color-neutral-light: #f9f8fb;
   --color-neutral-medium: #999;
@@ -19,6 +23,12 @@ box-sizing: border-box;
 
   --header-height: 3rem;
   --spacing: 1rem;
+
+
+
+
+
+
 
 /* BRAND FONTS */ 
 
@@ -276,29 +286,78 @@ li, a, input, button {
   	margin-bottom: 0;
 }
 
-  
 
 
 .navbar h1 {
 	font-size: 1em;
 	margin: 0;
 	font-family: var(--font-sans);  
-
-
-
 }
+
+.navbar h1,
+.navbar h1 a {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+
+
+
 
 
 .navbar a{
 	padding: 0 .5em;
 }
-
-
  
 
+ 
+/* CART ICON */
 
+/* To match cart icon layout and hover with other navbar links and to fix the aligment issue with the other links of the naav bar*/
+.navbar .cart-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--header-height);
+  padding: 0 0.75em;
+  text-decoration: none;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+/* Icon inherits text color */
+.navbar .cart-link svg {
+  fill: currentColor;
+  vertical-align: middle;
+  transition: fill 0.3s ease;
+}
 
+/* Same hover behavior as navbar links */
+.navbar .cart-link:hover {
+  background-color: var(--color-main-medium);
+  color: var(--color-white);
+}
+
+.navbar .cart-link:hover svg {
+  fill: var(--color-white);
+}
+
+ 
+ /* This code is to prevent the blue flash or system highlight on hover */
+.navbar .cart-link:focus,
+.navbar .cart-link:active {
+  outline: none;
+  background-color: var(--color-main-medium);
+  color: var(--color-white);
+}
+
+.navbar .cart-link svg:focus,
+.navbar .cart-link svg:active {
+  fill: var(--color-white);
+
+}
+
+ 
 
 
 

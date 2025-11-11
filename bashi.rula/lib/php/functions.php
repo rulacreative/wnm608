@@ -1,11 +1,35 @@
 <?php
 
 function print_p($v) {
-   echo "<pre>", print_r($v), "</pre>";
+    echo "<pre>", print_r($v,true), "</pre>";
 }
-
 
 function file_get_json($filename) {
-   $file = file_get_contents($filename);
-   return json_decode($file);
+    $file = file_get_contents($filename);
+    return json_decode($file);
 }
+
+/* ---- DATABASE FUNCTIONS ---- */
+include __DIR__ . "/auth.php";
+
+function makeConn() {
+    list($host, $user, $pass, $database) = MYSQLIAuth();
+
+    $conn = new mysqli($host, $user, $pass, $database);
+    if($conn->connect_errno) die($conn->connect_error);
+
+    $conn->set_charset('utf8');
+    return $conn;
+}
+
+function makeQuery($conn, $qry) {
+    $result = $conn->query($qry);
+    if($conn->errno) die($conn->error);
+
+    $a = [];
+    while($row = $result->fetch_object()) {
+        $a[] = $row;
+    }
+    return $a;
+}
+

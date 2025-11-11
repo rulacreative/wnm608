@@ -1,50 +1,42 @@
 <?php
- 
-  $id = $_GET['id'] ?? 'lavender-calm';
-  $page_title = "Velorea — Product";
-  include __DIR__ . "/parts/meta.php";
-  include __DIR__ . "/parts/navbar.php";
+include_once "lib/php/functions.php";
+include "parts/meta.php";
+include "parts/navbar.php";
+
+$id = $_GET['id'] ?? 0;
+$result = makeQuery(makeConn(), "SELECT * FROM products WHERE id=$id");
+
+if(count($result) > 0) {
+  $product = $result[0];
+} else {
+  echo "<div class='container'><p>Product not found.</p></div>";
+  die();
+}
 ?>
 
-<main class="container">
-  <nav class="nav nav-crumbs">
-    <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="product_list.php">Store</a></li>
-      <li><a href="#">Product</a></li>
-    </ul>
-  </nav>
+<div class="container">
+  <div class="card soft" style="text-align:center;">
 
-  <div class="grid gap md:gap-2 grid-1" style="text-align:center;">
-  <figure style="background:none; box-shadow:none; margin-bottom:1em;">
-    <img src="img/p1.png" alt="Product image" style="max-width:50%; height:auto; display:inline-block;">
-  </figure>
+    <h2><?= $product->name ?></h2>
+    
 
-  <article class="card soft">
-    <h2 class="h2">Sample Product Title</h2>
-    <p class="body">Short description of the product benefits and flavor profile.</p>
-    <p class="price h3">$18</p>
+    <img src="images/<?= $product->images ?>" alt="<?= $product->name ?>" 
+    style="max-width:400px; display:block; margin:1em auto; float:none; text-align:center;">
 
-    <form style="text-align:center; margin-top:1.5em;">
-
-  <div style="margin-bottom:2em;">
-
-    <label style="margin-right:0.5em;">Quantity</label>
-    <input type="number" min="1" value="1" style="max-width:4em; text-align:center;">
-  </div>
+     
+    <p><strong>Price:</strong> $<?= $product->price ?></p>
+    <p><?= $product->description ?></p>
+ 
 
   <div style="display:flex; justify-content:center; gap:1em;">
     <button class="button" type="button" onclick="window.location.href='cart_review.php'">Add to Cart</button>
     <button class="button button-secondary" type="button" onclick="window.location.href='blends.php'">Back to Store</button>
   </div>
 
-</form>
 
 
-  </article>
+  </div>
 </div>
 
 
-</main>
-
-<?php include __DIR__ . "/parts/footer.php"; ?>
+ 
