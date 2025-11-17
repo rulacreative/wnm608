@@ -18,10 +18,7 @@ $cart_count = getCartCount();
       <ul class="display-flex">
         <li><a href="/aau/wnm608/bashi.rula/index.php">Home</a></li>
         <li><a href="/aau/wnm608/bashi.rula/blends.php">Blends</a></li>
- 
-        <li><a href="/aau/wnm608/bashi.rula/cart_review.php">Cart Review</a></li>
-        <li><a href="/aau/wnm608/bashi.rula/cart_checkout.php">Checkout</a></li>
-        <li><a href="/aau/wnm608/bashi.rula/purchase_confirmation.php">Confirmation</a></li>
+  
 
         <li>
 
