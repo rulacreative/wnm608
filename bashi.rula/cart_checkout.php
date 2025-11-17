@@ -1,8 +1,14 @@
 <?php
-  $page_title = "Velorea — Checkout";
+  include_once "lib/php/functions.php";
+
+  $cart        = getCart();
+  $cart_count  = getCartCount();
+  $page_title  = "Velorea — Checkout";
+
   include __DIR__ . "/parts/meta.php";
   include __DIR__ . "/parts/navbar.php";
 ?>
+
 
 <main class="container">
   <h2>Checkout</h2>

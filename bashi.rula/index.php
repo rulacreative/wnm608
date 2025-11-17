@@ -1,6 +1,7 @@
 <?php include "parts/meta.php"; ?>
 <?php include "parts/navbar.php"; ?>
 
+
 <div class="view-window" style="background-image:url('/aau/wnm608/bashi.rula/img/velora-store.png')">
   <div class="view-overlay">
     <h1>Relax. Refresh. Revive.</h1>
@@ -33,27 +34,95 @@
   <p><strong>Autumn Offer:</strong> 20% off selective sets — code <code>FALL20</code> → <a href="index.php">Shop Discounts</a></p>
 </section>
 
+
+
+
 <section class="container">
   <h2>Featured Products</h2>
   <ul class="grid grid-4">
+
+    <!-- Lavender Calm -->
     <li class="card product">
-      <a href="product_item.php?id=1"><img alt="Lavender Calm" src="images/p1.png"><h3>Lavender Calm</h3><p>Floral, soothing</p><div class="price">$18</div></a>
-      <button class="button" onclick="window.location.href='cart_review.php'">Add to Cart</button>
+      <a href="product_item.php?id=1">
+        <img alt="Lavender Calm" src="images/p1.png">
+        <h3>Lavender Calm</h3>
+        <p>Floral, soothing</p>
+        <div class="price">$18</div>
+      </a>
+
+
+
+      <form method="post" action="product_item.php?id=1" style="text-align:center; margin-top:0.5em;">
+        <input type="hidden" name="add_to_cart" value="1">
+        <input type="hidden" name="qty" value="1">
+        <input type="hidden" name="weight" value="40g">
+        <button class="button" type="submit">Add to Cart</button>
+      </form>
+
     </li>
+
+    <!-- Mint Focus -->
     <li class="card product">
-      <a href="product_item.php?id=2"><img alt="Mint Focus" src="images/p2.png"><h3>Mint Focus</h3><p>Bright, refreshing</p><div class="price">$16</div></a>
-      <button class="button" onclick="window.location.href='cart_review.php'">Add to Cart</button>
+      <a href="product_item.php?id=2">
+        <img alt="Mint Focus" src="images/p2.png">
+        <h3>Mint Focus</h3>
+        <p>Bright, refreshing</p>
+        <div class="price">$16</div>
+      </a>
+
+      <form method="post" action="product_item.php?id=2" style="text-align:center; margin-top:0.5em;">
+      <input type="hidden" name="add_to_cart" value="1">
+      <input type="hidden" name="qty" value="1">
+      <input type="hidden" name="weight" value="40g">
+      <button class="button" type="submit">Add to Cart</button>
+    </form>
+
     </li>
+
+    <!-- Ginger Digest -->
     <li class="card product">
-      <a href="product_item.php?id=3"><img alt="Ginger Digest" src="images/p3.png"><h3>Ginger Digest</h3><p>Warm, supportive</p><div class="price">$17</div></a>
-      <button class="button" onclick="window.location.href='cart_review.php'">Add to Cart</button>
+      <a href="product_item.php?id=3">
+        <img alt="Ginger Digest" src="images/p3.png">
+        <h3>Ginger Digest</h3>
+        <p>Warm, supportive</p>
+        <div class="price">$17</div>
+      </a>
+
+      <form method="post" action="product_item.php?id=3" style="text-align:center; margin-top:0.5em;">
+      <input type="hidden" name="add_to_cart" value="1">
+      <input type="hidden" name="qty" value="1">
+      <input type="hidden" name="weight" value="40g">
+      <button class="button" type="submit">Add to Cart</button>
+    </form>
+
     </li>
+
+    <!-- Chamomile Dream -->
     <li class="card product">
-      <a href="product_item.php?id=4"><img alt="Chamomile Dream" src="images/p4.png"><h3>Chamomile Dream</h3><p>Soft, bedtime</p><div class="price">$15</div></a>
-      <button class="button" onclick="window.location.href='cart_review.php'">Add to Cart</button>
+      <a href="product_item.php?id=4">
+        <img alt="Chamomile Dream" src="images/p4.png">
+        <h3>Chamomile Dream</h3>
+        <p>Soft, bedtime</p>
+        <div class="price">$15</div>
+      </a>
+
+      <form method="post" action="product_item.php?id=4" style="text-align:center; margin-top:0.5em;">
+      <input type="hidden" name="add_to_cart" value="1">
+      <input type="hidden" name="qty" value="1">
+      <input type="hidden" name="weight" value="40g">
+      <button class="button" type="submit">Add to Cart</button>
+    </form>
+
     </li>
+
   </ul>
 </section>
+
+
+
+
+
+
 
 
 <section id="about-velorea" class="about-band">
