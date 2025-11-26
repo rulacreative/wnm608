@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // Event listeners
+  //  listeners
   searchInput.addEventListener("input", applyFilters);
   sortSelect.addEventListener("change", applyFilters);
   catSelect.addEventListener("change", applyFilters);
