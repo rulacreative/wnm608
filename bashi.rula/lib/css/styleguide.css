@@ -1,4 +1,15 @@
 
+/* Remove blue browser focus outline */
+input:focus,
+select:focus,
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+
+
 
 /* CSS RESET */ 
 *, *::after,*::before {
@@ -755,4 +766,46 @@ li, a, input, button {
   font-weight: 600;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.blends-controls {
+  display: flex;
+  align-items: center;        /* To align vertically with the search bar*/
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.blends-controls input[type="search"] {
+  flex: 1;
+}
+
+.reset-btn {
+  display: inline-flex;
+  align-items: center;        /*  vertically center text */
+  justify-content: center;
+  padding: 0.7em 1.5em;
+  background: linear-gradient(135deg, #c7a7dd, #b59cdc);
+  border-radius: 20px;
+  border: 2px solid #0057ff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
 

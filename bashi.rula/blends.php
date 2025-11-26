@@ -14,181 +14,84 @@
   </div>
 </div>
 
+<!-- SEARCH + FILTERS BAR -->
+<section class="container" style="margin-top:2em;">
+  <div class="flex-center" style="display:flex; gap:1em; align-items:center; flex-wrap:wrap;">
+    
+    <input id="search-input" 
+      type="text" 
+      placeholder="Search blends…" 
+      style="flex:1; padding:1em; border-radius:8px; border:1px solid #ccc; font-size:1.1em;">
+
+    <select id="sort-select" 
+      style="padding:1em; border-radius:8px; border:1px solid #ccc; font-size:1.1em;">
+      <option value="newest">Sort By: Newest</option>
+      <option value="az">A–Z</option>
+      <option value="za">Z–A</option>
+      <option value="lowhigh">Price: Low → High</option>
+      <option value="highlow">Price: High → Low</option>
+    </select>
+
+    <select id="category-select"
+      style="padding:1em; border-radius:8px; border:1px solid #ccc; font-size:1.1em;">
+      <option value="all">All Categories</option>
+      <option value="calming">Calming</option>
+      <option value="focus">Focus / Energy</option>
+      <option value="digestion">Digestion / Wellness</option>
+      <option value="classic">Classic / Traditional</option>
+      <option value="comfort">Comfort / Warm</option>
+    </select>
+
+    <button id="reset-btn"
+      style="padding:1em 2em; border-radius:20px; background:#b99bd9; color:white; border:2px solid #3a56d4; font-size:1em;">
+      Reset
+    </button>
+
+  </div>
+</section>
+
+
 <section class="container">
   <h2>Luxury Wellness Blends</h2>
-  <ul class="grid grid-4">
 
-    <li class="card product">
-      <a href="product_item.php?id=1"><img alt="Lavender Calm" src="images/p1.png">
-      <h3>Lavender Calm</h3><p>Soft floral notes to relax body and mind.</p><div class="price">$18</div></a>
+  <ul id="product-list" class="grid grid-4">
 
-      <form method="post" action="product_item.php?id=1" style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
+    <!-- PRODUCT CARDS -->
+    <?php
+      $products = [
+        [1,"Lavender Calm","Soft floral notes to relax body and mind.",18,"images/p1.png","calming"],
+        [2,"Mint Focus","Cool mint that refreshes and sharpens focus.",16,"images/p2.png","focus"],
+        [3,"Ginger Digest","Warm spice that supports calm digestion.",17,"images/p3.png","digestion"],
+        [4,"Chamomile Dream","Golden calm in a cup — your bedtime ritual begins here.",15,"images/p4.png","calming"],
+        [5,"Rose Harmony","Delicate rose for moments of inner peace.",19,"images/p5.png","calming"],
+        [6,"Citrus Glow","Zesty citrus that uplifts and energizes.",17,"images/p6.png","focus"],
+        [7,"Chai Tranquil","Spiced warmth that comforts and grounds.",18,"images/p7.png","comfort"],
+        [8,"Jasmine Muse","Fragrant jasmine that inspires calm focus.",20,"images/p8.png","focus"],
+        [9,"Earl Grey Luxe","Classic black tea with notes of bright bergamot.",19.5,"images/p9.png","classic"],
+        [10,"Moroccan Mint","A timeless Moroccan blend of green tea and refreshing mint.",16.5,"images/p10.png","classic"],
+        [11,"Hibiscus Breeze","Tart ruby hibiscus with a cooling floral finish.",15.5,"images/p11.png","comfort"],
+        [12,"Turmeric Soothe","Golden turmeric with ginger for gentle warmth.",17.5,"images/p12.png","digestion"]
+      ];
 
-    </li>
+      foreach($products as $p) {
+        echo "
+        <li class='card product' data-name='{$p[1]}' data-desc='{$p[2]}' data-price='{$p[3]}' data-cat='{$p[5]}'>
+          <a href='product_item.php?id={$p[0]}'><img alt='{$p[1]}' src='{$p[4]}'>
+          <h3>{$p[1]}</h3><p>{$p[2]}</p><div class='price'>\${$p[3]}</div></a>
 
-    <li class="card product">
-      <a href="product_item.php?id=2"><img alt="Mint Focus" src="images/p2.png">
-      <h3>Mint Focus</h3><p>Cool mint that refreshes and sharpens focus.</p><div class="price">$16</div></a>
-
-      <form method="post" action="product_item.php?id=2" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=3"><img alt="Ginger Digest" src="images/p3.png">
-      <h3>Ginger Digest</h3><p>Warm spice that supports calm digestion.</p><div class="price">$17</div></a>
-
-      <form method="post" action="product_item.php?id=3" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=4"><img alt="Chamomile Dream" src="images/p4.png">
-      <h3>Chamomile Dream</h3><p>Golden calm in a cup — your bedtime ritual begins here.</p><div class="price">$15</div></a>
-
-      <form method="post" action="product_item.php?id=4" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=5"><img alt="Rose Harmony" src="images/p5.png">
-      <h3>Rose Harmony</h3><p>Delicate rose for moments of inner peace.</p><div class="price">$19</div></a>
-
-      <form method="post" action="product_item.php?id=5" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=6"><img alt="Citrus Glow" src="images/p6.png">
-      <h3>Citrus Glow</h3><p>Zesty citrus that uplifts and energizes.</p><div class="price">$17</div></a>
-
-      <form method="post" action="product_item.php?id=6" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=7"><img alt="Chai Tranquil" src="images/p7.png">
-      <h3>Chai Tranquil</h3><p>Spiced warmth that comforts and grounds.</p><div class="price">$18</div></a>
-
-      
-
-
-      <form method="post" action="product_item.php?id=7" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=8"><img alt="Jasmine Muse" src="images/p8.png">
-      <h3>Jasmine Muse</h3><p>Fragrant jasmine that inspires calm focus.</p><div class="price">$20</div></a>
-
-      <form method="post" action="product_item.php?id=8" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-        <input type="hidden" name="add_to_cart" value="1">
-        <input type="hidden" name="qty" value="1">
-        <input type="hidden" name="weight" value="40g">
-        <button class="button" type="submit">Add to Cart</button>
-      </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=9"><img alt="Earl Grey Luxe" src="images/p9.png">
-      <h3>Earl Grey Luxe</h3><p>Classic black tea with notes of bright bergamot.</p><div class="price">$19.50</div></a>
-
-      <form method="post" action="product_item.php?id=9" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=10"><img alt="Moroccan Mint" src="images/p10.png">
-      <h3>Moroccan Mint</h3><p>A timeless Moroccan blend of green tea and refreshing mint.</p><div class="price">$16.50</div></a>
-
-      <form method="post" action="product_item.php?id=10" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=11"><img alt="Hibiscus Breeze" src="images/p11.png">
-      <h3>Hibiscus Breeze</h3><p>Tart ruby hibiscus with a cooling floral finish.</p><div class="price">$15.50</div></a>
-
-      <form method="post" action="product_item.php?id=11" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
-    <li class="card product">
-      <a href="product_item.php?id=12"><img alt="Turmeric Soothe" src="images/p12.png">
-      <h3>Turmeric Soothe</h3><p>Golden turmeric with ginger for gentle warmth.</p><div class="price">$17.50</div></a>
-
-      <form method="post" action="product_item.php?id=12" 
-      style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
-      <input type="hidden" name="add_to_cart" value="1">
-      <input type="hidden" name="qty" value="1">
-      <input type="hidden" name="weight" value="40g">
-      <button class="button" type="submit">Add to Cart</button>
-    </form>
-
-    </li>
-
+          <form method='post' action='product_item.php?id={$p[0]}' 
+          style='display:flex; justify-content:center; gap:1em; margin-top:0.5em;'>
+            <input type='hidden' name='add_to_cart' value='1'>
+            <input type='hidden' name='qty' value='1'>
+            <input type='hidden' name='weight' value='40g'>
+            <button class='button' type='submit'>Add to Cart</button>
+          </form>
+        </li>";
+      }
+    ?>
   </ul>
 </section>
+
+<script src="lib/js/blends.js"></script>
 
 <?php include __DIR__ . "/parts/footer.php"; ?>
