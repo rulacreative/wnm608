@@ -3,6 +3,7 @@
 
   $page_title  = "Velorea — Our Signature Tea Blends";
   $cart_count  = getCartCount();
+
   include __DIR__ . "/parts/meta.php";
   include __DIR__ . "/parts/navbar.php";
 ?>
@@ -50,43 +51,39 @@
   </div>
 </section>
 
-
 <section class="container">
   <h2>Luxury Wellness Blends</h2>
 
   <ul id="product-list" class="grid grid-4">
-
-    <!-- PRODUCT CARDS -->
     <?php
-      $products = [
-        [1,"Lavender Calm","Soft floral notes to relax body and mind.",18,"images/p1.png","calming"],
-        [2,"Mint Focus","Cool mint that refreshes and sharpens focus.",16,"images/p2.png","focus"],
-        [3,"Ginger Digest","Warm spice that supports calm digestion.",17,"images/p3.png","digestion"],
-        [4,"Chamomile Dream","Golden calm in a cup — your bedtime ritual begins here.",15,"images/p4.png","calming"],
-        [5,"Rose Harmony","Delicate rose for moments of inner peace.",19,"images/p5.png","calming"],
-        [6,"Citrus Glow","Zesty citrus that uplifts and energizes.",17,"images/p6.png","focus"],
-        [7,"Chai Tranquil","Spiced warmth that comforts and grounds.",18,"images/p7.png","comfort"],
-        [8,"Jasmine Muse","Fragrant jasmine that inspires calm focus.",20,"images/p8.png","focus"],
-        [9,"Earl Grey Luxe","Classic black tea with notes of bright bergamot.",19.5,"images/p9.png","classic"],
-        [10,"Moroccan Mint","A timeless Moroccan blend of green tea and refreshing mint.",16.5,"images/p10.png","classic"],
-        [11,"Hibiscus Breeze","Tart ruby hibiscus with a cooling floral finish.",15.5,"images/p11.png","comfort"],
-        [12,"Turmeric Soothe","Golden turmeric with ginger for gentle warmth.",17.5,"images/p12.png","digestion"]
-      ];
+      $products = makeQuery(makeConn(), "SELECT * FROM products ORDER BY id ASC");
 
       foreach($products as $p) {
         echo "
-        <li class='card product' data-name='{$p[1]}' data-desc='{$p[2]}' data-price='{$p[3]}' data-cat='{$p[5]}'>
-          <a href='product_item.php?id={$p[0]}'><img alt='{$p[1]}' src='{$p[4]}'>
-          <h3>{$p[1]}</h3><p>{$p[2]}</p><div class='price'>\${$p[3]}</div></a>
+          <li class='card product'
+            data-name=\"{$p->name}\"
+            data-desc=\"{$p->description}\"
+            data-price=\"{$p->price}\"
+            data-cat=\"{$p->category}\">
 
-          <form method='post' action='product_item.php?id={$p[0]}' 
-          style='display:flex; justify-content:center; gap:1em; margin-top:0.5em;'>
-            <input type='hidden' name='add_to_cart' value='1'>
-            <input type='hidden' name='qty' value='1'>
-            <input type='hidden' name='weight' value='40g'>
-            <button class='button' type='submit'>Add to Cart</button>
-          </form>
-        </li>";
+            <a href='product_item.php?id={$p->id}'>
+              <img alt=\"{$p->name}\" src='images/{$p->thumbnail}'>
+              <h3>{$p->name}</h3>
+              <p>{$p->description}</p>
+              <div class='price'>\${$p->price}</div>
+            </a>
+
+            <form method='post' action='product_item.php?id={$p->id}'
+              style='display:flex; justify-content:center; gap:1em; margin-top:0.5em;'>
+              
+              <input type='hidden' name='add_to_cart' value='1'>
+              <input type='hidden' name='qty' value='1'>
+              <input type='hidden' name='weight' value='40g'>
+
+              <button class='button' type='submit'>Add to Cart</button>
+            </form>
+          </li>
+        ";
       }
     ?>
   </ul>
