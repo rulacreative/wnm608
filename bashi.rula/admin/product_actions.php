@@ -10,9 +10,13 @@ function runNonQuery($conn, $qry) {
     }
 }
 
+ 
 
 
-/* -----------  DUPLICATE   ---------------- */
+
+
+
+/* -----------  DUPLICATE ITEM   ---------------- */
 if(isset($_GET['duplicate']) && isset($_GET['id'])) {
 
     $id = intval($_GET['id']);
