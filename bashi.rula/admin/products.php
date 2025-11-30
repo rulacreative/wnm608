@@ -4,9 +4,7 @@ include "../lib/php/functions.php";
 $products = makeQuery(makeConn(), "SELECT * FROM `products` ORDER BY id ASC");
 
 
-// --------------------------------------------------- 
-// Product List Template (with ID)
-// ------------------------------------------------------------
+// ------------ Product List Template (with ID) ------------ //  
 function productListTemplate($p) {
    return "
       <li class='product-item' data-name='".strtolower($p->name)."' data-id='{$p->id}'>
@@ -18,9 +16,7 @@ function productListTemplate($p) {
 }
 
 
-// ------------------------------------------------- 
-// Edit Product Form
-// ------------------------------------------------------------
+// ----------------  Edit Product Form ----------------------------- //
 function productEditForm($p) {
 
 return <<<HTML
@@ -74,9 +70,7 @@ HTML;
 }
 
 
-// ----------------------------------------------- 
-// New Product Form
-// ----------------------------------------------- 
+// ---   // New Product Form // ------------- 
 function productNewForm() {
 
 	return <<<HTML
@@ -145,7 +139,11 @@ HTML;
       }
    </script>
    <style>
-      /* clean, simple search bar styling matching your theme */
+
+
+
+
+      /* ------------Search Bar ------------ */
       #admin-search {
          width: 100%;
          padding: 0.7em 1em;
@@ -184,7 +182,9 @@ HTML;
 
 
 
-   // Edit page
+   // ------------ Edit page ------------//
+
+
    if(isset($_GET['id']) && $_GET['id'] != "new") {
 
       $p = makeQuery(makeConn(),
@@ -202,7 +202,7 @@ HTML;
 
 
 
-   // Product list page
+   // ------------Product list page ------------ // 
    } else {
 ?>
 
@@ -238,7 +238,7 @@ HTML;
 
 
 
-/* Admin Search (Name or ID) */
+/* ------------ Admin Search (Name or ID) ------------ */
 const searchInput = document.querySelector("#admin-search");
 const items = document.querySelectorAll(".product-item");
 

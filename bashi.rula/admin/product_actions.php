@@ -3,10 +3,7 @@ include "../lib/php/functions.php";
 
 $conn = makeConn();
 
-/* 
-   Utility for INSERT / UPDATE / DELETE.
-   Avoids the fetch_object() crash you were getting.
-*/
+/* ------------ Utility for INSERT / UPDATE / DELETE. ------------ */
 function runNonQuery($conn, $qry) {
     if(!$conn->query($qry)) {
         die("DB Error: " . $conn->error);
@@ -15,9 +12,7 @@ function runNonQuery($conn, $qry) {
 
 
 
-/* ------------------------------------------------------------
-   DUPLICATE (GET REQUEST)
------------------------------------------------------------- */
+/* -----------  DUPLICATE   ---------------- */
 if(isset($_GET['duplicate']) && isset($_GET['id'])) {
 
     $id = intval($_GET['id']);
@@ -51,17 +46,20 @@ if(isset($_GET['duplicate']) && isset($_GET['id'])) {
 }
 
 
+/* -------   HANDLE FORM ACTIONS  ------------------------- */
 
-/* ------------------------------------------------------------
-   HANDLE FORM ACTIONS (POST)
------------------------------------------------------------- */
+
 $action = $_POST['action'] ?? "";
 $type = "";
 
 
 switch($action) {
 
-    /* CREATE */
+
+
+/* ------------CREATE NEW ------------*/
+
+
     case "create":
         $qry = "
             INSERT INTO products
@@ -82,7 +80,9 @@ switch($action) {
         break;
 
 
-    /* UPDATE */
+ /* ------------UPDATE ------------*/
+
+
     case "update":
         $id = intval($_POST['id']);
         $qry = "
@@ -102,7 +102,7 @@ switch($action) {
         break;
 
 
-    /* DELETE */
+ /* ------------DELETE ------------------------*/
     case "delete":
         $id = intval($_POST['id']);
         $qry = "DELETE FROM products WHERE id=$id";
@@ -112,9 +112,7 @@ switch($action) {
 }
 
 
-/* ------------------------------------------------------------
-   REDIRECT BACK
------------------------------------------------------------- */
+/* --------------- REDIRECT BACK -------- */
 header("Location: /aau/wnm608/bashi.rula/admin/products.php?status=$type");
 exit;
 ?>

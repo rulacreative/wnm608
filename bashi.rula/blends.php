@@ -15,7 +15,8 @@
   </div>
 </div>
 
-<!-- SEARCH + FILTERS BAR -->
+<!-------------- SEARCH + FILTERS BAR -------------->
+
 <section class="container" style="margin-top:2em;">
   <div class="flex-center" style="display:flex; gap:1em; align-items:center; flex-wrap:wrap;">
     
