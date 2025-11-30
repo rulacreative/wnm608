@@ -51,81 +51,52 @@
 </section>
 
 <!-- FEATURED PRODUCTS -->
+
+
+
+
+
+
 <section class="container">
   <h2>Featured Products</h2>
 
-  <ul class="grid grid-4">
+<?php
+// Load newest 4 products from the database
+$featured = makeQuery(makeConn(), "
+    SELECT * FROM products ORDER BY id ASC LIMIT 4
+");
+?>
 
-    <!-- Lavender Calm -->
+<ul class="grid grid-4">
+<?php foreach($featured as $p) : ?>
     <li class="card product">
-      <a href="product_item.php?id=1">
-        <img alt="Lavender Calm" src="images/p1.png">
-        <h3>Lavender Calm</h3>
-        <p>Floral, soothing</p>
-        <div class="price">$18</div>
-      </a>
+        <a href="product_item.php?id=<?= $p->id ?>">
+            <img alt="<?= $p->name ?>" src="images/<?= $p->thumbnail ?>">
+            <h3><?= $p->name ?></h3>
+            <p><?= $p->description ?></p>
+            <div class="price">$<?= $p->price ?></div>
+        </a>
 
-      <form method="post" action="product_item.php?id=1" style="text-align:center; margin-top:0.5em;">
-        <input type="hidden" name="add_to_cart" value="1">
-        <input type="hidden" name="qty" value="1">
-        <input type="hidden" name="weight" value="40g">
-        <button class="button" type="submit">Add to Cart</button>
-      </form>
+        <form method="post" action="product_item.php?id=<?= $p->id ?>"
+            style="display:flex; justify-content:center; gap:1em; margin-top:0.5em;">
+            <input type="hidden" name="add_to_cart" value="1">
+            <input type="hidden" name="qty" value="1">
+            <input type="hidden" name="weight" value="40g">
+            <button class="button" type="submit">Add to Cart</button>
+        </form>
     </li>
+<?php endforeach; ?>
+</ul>
 
-    <!-- Mint Focus -->
-    <li class="card product">
-      <a href="product_item.php?id=2">
-        <img alt="Mint Focus" src="images/p2.png">
-        <h3>Mint Focus</h3>
-        <p>Bright, refreshing</p>
-        <div class="price">$16</div>
-      </a>
 
-      <form method="post" action="product_item.php?id=2" style="text-align:center; margin-top:0.5em;">
-        <input type="hidden" name="add_to_cart" value="1">
-        <input type="hidden" name="qty" value="1">
-        <input type="hidden" name="weight" value="40g">
-        <button class="button" type="submit">Add to Cart</button>
-      </form>
-    </li>
 
-    <!-- Ginger Digest -->
-    <li class="card product">
-      <a href="product_item.php?id=3">
-        <img alt="Ginger Digest" src="images/p3.png">
-        <h3>Ginger Digest</h3>
-        <p>Warm, supportive</p>
-        <div class="price">$17</div>
-      </a>
 
-      <form method="post" action="product_item.php?id=3" style="text-align:center; margin-top:0.5em;">
-        <input type="hidden" name="add_to_cart" value="1">
-        <input type="hidden" name="qty" value="1">
-        <input type="hidden" name="weight" value="40g">
-        <button class="button" type="submit">Add to Cart</button>
-      </form>
-    </li>
 
-    <!-- Chamomile Dream -->
-    <li class="card product">
-      <a href="product_item.php?id=4">
-        <img alt="Chamomile Dream" src="images/p4.png">
-        <h3>Chamomile Dream</h3>
-        <p>Soft, bedtime</p>
-        <div class="price">$15</div>
-      </a>
 
-      <form method="post" action="product_item.php?id=4" style="text-align:center; margin-top:0.5em;">
-        <input type="hidden" name="add_to_cart" value="1">
-        <input type="hidden" name="qty" value="1">
-        <input type="hidden" name="weight" value="40g">
-        <button class="button" type="submit">Add to Cart</button>
-      </form>
-    </li>
 
-  </ul>
-</section>
+
+
+
 
 <!-- ABOUT SECTION -->
 <section id="about-velorea" class="about-band">

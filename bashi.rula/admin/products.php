@@ -163,12 +163,19 @@ HTML;
 
       <div class="flex-stretch"></div>
 
-      <nav class="nav nav-flex flex-none">
-         <ul>
-            <li><a href="/aau/wnm608/bashi.rula/admin/products.php">Products</a></li>
-            <li><a href="/aau/wnm608/bashi.rula/admin/users.php">Users</a></li>
-         </ul>
-      </nav>
+
+
+		<nav class="nav nav-flex flex-none">
+		   <ul>
+		      <li><a href="/aau/wnm608/bashi.rula/index.php" target="_blank">Home</a></li>
+		      <li><a href="/aau/wnm608/bashi.rula/admin/products.php">Products</a></li>
+		      <li><a href="/aau/wnm608/bashi.rula/admin/users.php">Users</a></li>
+		   </ul>
+		</nav>
+
+
+
+
    </div>
 </header>
 
