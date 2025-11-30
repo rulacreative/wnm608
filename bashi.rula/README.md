@@ -31,3 +31,7 @@ https://rulancia.com/aau/wnm608/bashi.rula/notes/
 https://rulancia.com/aau/wnm608/bashi.rula/notes/?name=Rula&type=textarea 
 
 https://rulancia.com/aau/wnm608/bashi.rula/notes/index.php?name=Rula&type=textarea
+
+
+From Assigment 13 
+https://rulancia.com/aau/wnm608/bashi.rula/admin/products.php
