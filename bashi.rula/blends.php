@@ -8,7 +8,7 @@
   include __DIR__ . "/parts/navbar.php";
 ?>
 
-<div class="view-window" style="background-image:url('images/teablends-hero.png')">
+<div class="view-window" style="background-image:url('images/teablends-hero.png'); height: 200px;">
   <div class="view-overlay">
     <h1>Our Signature Blends</h1>
     <p>Discover Velorea’s artisan tea collection — each crafted to awaken the senses and restore balance.</p>
