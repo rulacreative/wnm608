@@ -19,7 +19,7 @@ $page_title = $page_title ?? "Velorea";
 <base href="https://rulancia.com/aau/wnm608/bashi.rula/">
 
 
- <!-- Adobe Fonts: The Seasons + Avenir LT Pro -->
+ <!--  Adobe Fonts: The Seasons + Avenir LT Pro  -->
  <link rel="stylesheet" href="https://use.typekit.net/gok2yjy.css">
 
    <link rel="stylesheet" href="lib/css/styleguide.css">
@@ -27,7 +27,7 @@ $page_title = $page_title ?? "Velorea";
   <link rel="stylesheet" href="css/storetheme.css"> 
 
 
-
+ 
 
 
 
