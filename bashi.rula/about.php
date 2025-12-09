@@ -19,13 +19,10 @@
 <!-- MAIN CONTENT -->
 <section class="container" style="max-width: 900px; padding: 50px 20px; line-height: 1.7;">
 
-    <h2 style="text-align:center; font-size:32px; margin-bottom:10px;">
-        About Velorea
+    <h2 style="text-align:left; font-size:32px; margin-bottom:10px;">
+        What Makes Us Different?
     </h2>
-
-    <p style="text-align:center; font-size:18px; color:#555; margin-bottom:40px;">
-        Where calm, clarity, and mindful ritual begin.
-    </p>
+ 
 
     <!-- Section 1 -->
     <h3 style="font-size:24px; margin-top:35px; margin-bottom:10px;">

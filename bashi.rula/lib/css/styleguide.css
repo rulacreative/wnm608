@@ -43,10 +43,15 @@ box-sizing: border-box;
 
 /* BRAND FONTS */ 
 
-  --font-serif: "The Seasons", Georgia, "Times New Roman", serif;
+  --font-serif: "the-seasons", Georgia, "Times New Roman", serif;
+
   --font-sans: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
+
+
+
+
 
 .view-window h1 {
   font-family: "the-seasons", serif;
@@ -115,8 +120,8 @@ body {
 	margin:0;
 	font-size:100%;
 	 font-weight: 400;  /* Avenir LT Pro 55 Roman */
+    overflow-x: hidden; /* mobile horizontal centering   */
 }
-
 
 p {
   margin-bottom: 1rem;
@@ -416,19 +421,7 @@ li, a, input, button {
 
 
 
-.view-window {
-	height: 50vh;
-	position: relative;
-	overflow: hidden;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed; /* to make the size of the background image flexable*/
-	margin: 0; 
-	padding: 0;
-	display: block;
-}
-
+ 
   
  
 
@@ -773,6 +766,51 @@ li, a, input, button {
 
 
 
+.cta-button {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 18px;
+    border: 2px solid #977da9; /* purple */
+    border-radius: 40px;
+    color: #4a3f4e;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #977da9;
+    color: white;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .cta-button {
+        padding: 16px 36px;
+        font-size: 20px;
+        border-radius: 50px;
+    }
+}
+
+
+
+
+
+
+/* Stack product buttons on mobile */
+@media (max-width: 600px) {
+    .product-button-row {
+        flex-direction: column !important;
+        gap: 1.2em !important;
+    }
+
+    .product-button-row .button,
+    .product-button-row .button-secondary {
+        width: 100%;
+        text-align: center;
+        white-space: nowrap; /* Important note: This is to prevents text from breaking into 2 lines */
+    }
+}
 
 
 
@@ -807,5 +845,121 @@ li, a, input, button {
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+}
+
+
+
+/* Reduce spacing between stacked buttons on mobile */
+@media (max-width: 600px) {
+    .product-button-row .button,
+    .product-button-row .button-secondary {
+        margin-bottom: 1em !important;  
+    }
+
+    /*  tighten row spacing */
+    .product-button-row {
+        gap: 0.5em !important;
+    }
+}
+
+
+
+/* Prevent ALL buttons from wrapping buttons text aanywhere on the site */
+button,
+.button,
+.button-secondary,
+.cta-button,
+.button * {
+    white-space: nowrap !important;
+}
+/* Prevent tiny squeezed buttons on mobile */
+.button,
+.button-secondary,
+.cta-button {
+    min-width: 160px;    
+    white-space: nowrap; /* no text wrapping */
+}
+
+
+
+ 
+
+
+
+
+/* --- Prevent horizontal overflow --- */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: scroll; !important;
+    }
+}
+
+
+
+
+/* --------------------------------------------------
+   MOBILE FIXES  
+     navbar alignment + cart review overflow
+-------------------------------------------------- */
+@media (max-width: 768px) {
+
+    /*  navbar layout — keep items centered and visible */
+    .navbar .nav-flex,
+    .navbar .display-flex,
+    .navbar ul {
+        justify-content: space-between !important;
+        width: 100%;
+    }
+
+    /*  cart icon clipping */
+    .navbar .cart-link {
+        padding-right: 1rem !important;
+        margin-right: 0 !important;
+        flex-shrink: 0;
+    }
+
+    /* Cart Review: prevent horizontal crop */
+    .cart-table,
+    table,
+    .cart-items {
+        width: 100% !important;
+        table-layout: auto !important;
+    }
+
+    /* Let text wrap instead of forcing overflow */
+    td, th {
+        white-space: normal !important;
+        word-break: break-word;
+    }
+
+    /*  totals section fits inside screen */
+    .cart-summary {
+        width: 100% !important;
+        display: block;
+    }
+
+    /*  qty input shrink properly */
+    input[type="number"] {
+        max-width: 60px;
+    }
+}
+
+
+/* --------------------------------------------------
+   PARALLAX — DESKTOP ONLY
+-------------------------------------------------- */
+
+/* Desktop parallax  */
+@media (min-width: 769px) {
+    .view-window {
+        background-attachment: fixed !important;
+    }
+}
+
+/* Mobile no PARALLAX   */
+@media (max-width: 768px) {
+    .view-window {
+        background-attachment: scroll !important;
+    }
 }
 

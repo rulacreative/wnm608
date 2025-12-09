@@ -66,7 +66,8 @@ include "parts/navbar.php";
         <input id="qty" name="qty" type="number" min="1" value="1" style="max-width:4em; text-align:center;">
       </div>
 
-      <div style="display:flex; justify-content:center; gap:1em;">
+      <div class="product-button-row" style="display:flex; justify-content:center; gap:1em;">
+
         <button class="button" type="submit">Add to Cart</button>
         <button class="button button-secondary" type="button" onclick="window.location.href='blends.php'">Back to Store</button>
       </div>

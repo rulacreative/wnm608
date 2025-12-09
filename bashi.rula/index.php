@@ -110,7 +110,7 @@ $featured = makeQuery(makeConn(), "
       We source our ingredients with care, blend them with intention, and design every detail —
       from scent to texture — to turn your daily cup into a small act of luxury and mindfulness.
     </p>
-    <a class="button button-secondary about-btn" href="index.php">Learn More</a>
+    <a class="button button-secondary about-btn" href="about.php">Learn More</a>
   </div>
 </section>
 
