@@ -34,7 +34,7 @@
       <option value="highlow">Price: High → Low</option>
     </select>
 
-    <!-- IMPORTANT: values here are simple lowercase slugs -->
+x
     <select
       id="category-select"
       style="padding:1em; border-radius:8px; border:1px solid #ccc; font-size:1.1em;">
