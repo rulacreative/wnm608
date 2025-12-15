@@ -2,199 +2,129 @@
 include_once "lib/php/functions.php";
 include_once "parts/templates.php";
 
-/* ---- CART ACTIONS ---- */
+/* -------- CART ACTIONS -------- */
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
     if($action === 'add') {
-        $id     = (int)($_POST['id'] ?? 0);
-        $name   = $_POST['name']  ?? '';
-        $price  = (float)($_POST['price'] ?? 0);
-        $image  = $_POST['image'] ?? '';
-        $weight = $_POST['weight'] ?? 'Standard';
-        $qty    = max(1, (int)($_POST['qty'] ?? 1));
-
-        addToCart($id, $name, $price, $weight, $image, $qty);
-        setFlash("$name was added to your cart.");
-        header("Location: cart_review.php");
-        exit;
+        addToCart(
+            (int)$_POST['id'],
+            $_POST['name'],
+            (float)$_POST['price'],
+            $_POST['weight'],
+            $_POST['image'],
+            max(1,(int)$_POST['qty'])
+        );
+        setFlash("{$_POST['name']} was added to your cart.");
+        header("Location: cart_review.php"); exit;
     }
 
     if($action === 'update') {
-        $index = (int)($_POST['index'] ?? -1);
-        $qty   = max(1, (int)($_POST['qty'] ?? 1));
-        $cart  = getCart();
-        if(isset($cart[$index])) {
-            $cart[$index]['qty'] = $qty;
+        $cart = getCart();
+        $i = (int)$_POST['index'];
+        if(isset($cart[$i])) {
+            $cart[$i]['qty'] = max(1,(int)$_POST['qty']);
             saveCart($cart);
-            setFlash("Cart updated.");
         }
-        header("Location: cart_review.php");
-        exit;
+        header("Location: cart_review.php"); exit;
     }
 
     if($action === 'delete') {
-        $index = (int)($_POST['index'] ?? -1);
-        $cart  = getCart();
-        if(isset($cart[$index])) {
-            unset($cart[$index]);
-            $cart = array_values($cart);
-            saveCart($cart);
-            setFlash("Item removed from cart.");
-        }
-        header("Location: cart_review.php");
-        exit;
+        $cart = getCart();
+        unset($cart[(int)$_POST['index']]);
+        saveCart(array_values($cart));
+        header("Location: cart_review.php"); exit;
     }
 }
 
-/* ---- VIEW DATA ---- */
-$cart        = getCart();
-$cart_count  = getCartCount();
-$flash       = getFlash();
-$subtotal    = 0;
-$tax_rate    = 0.06;
-
-foreach($cart as $item) {
-    $subtotal += $item['price'] * $item['qty'];
-}
-
-$tax   = $subtotal * $tax_rate;
+/* -------- DATA -------- */
+$cart = getCart();
+$flash = getFlash();
+$subtotal = array_reduce($cart, fn($s,$i)=>$s+$i['price']*$i['qty'], 0);
+$tax = $subtotal * 0.06;
 $total = $subtotal + $tax;
 
-$page_title = "Velorea — Cart Review";
-include __DIR__ . "/parts/meta.php";
-include __DIR__ . "/parts/navbar.php";
+include "parts/meta.php";
+include "parts/navbar.php";
 ?>
 
-<main class="container" style="text-align:center; max-width:900px; margin:auto;">
-    <h2>Cart Review</h2>
+<main class="container" style="max-width:900px;margin:auto;">
+<h2 style="text-align:center;">Cart Review</h2>
 
-    <?php if($flash): ?>
-        <div class="alert alert-success"><?= htmlspecialchars($flash) ?></div>
-    <?php endif; ?>
+<?php if($flash): ?>
+<div class="alert alert-success"><?= htmlspecialchars($flash) ?></div>
+<?php endif; ?>
 
-    <?php if(empty($cart)): ?>
+<?php if(empty($cart)): ?>
 
-        <!-- EMPTY CART VIEW -->
-        <p style="margin-top:2em; font-size:1.2rem; color:#666;">
-            Your cart is empty.
-        </p>
+<p style="text-align:center;">Your cart is empty.</p>
+<div style="text-align:center;">
+<button class="button" onclick="location.href='blends.php'">Continue Shopping</button>
+</div>
 
-        <button class="button" 
-                onclick="window.location.href='blends.php'"
-                style="margin-top:1em;">
-            Continue Shopping
-        </button>
+<?php else: ?>
 
-    <?php else: ?>
 
-        <!-- CART TABLE -->
-        <table class="table" id="cart-table" style="margin:2em auto; text-align:center; width:80%;">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Qty</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
 
-            <tbody>
-                <?php foreach($cart as $i => $item): ?>
-                    <tr>
-                        <td>
-                            <div style="display:flex; align-items:start; gap:1em;">
+<!-- CART ITEMS -->
+<div class="cart-list">
 
-                                <div style="width:80px; height:80px; overflow:hidden; border-radius:6px; flex-shrink:0;">
-                                    <img src="images/<?= htmlspecialchars($item['image']) ?>"
-                                         alt="<?= htmlspecialchars($item['name']) ?>"
-                                         style="width:100%; height:100%; object-fit:cover;">
-                                </div>
+<?php foreach($cart as $i=>$item): ?>
+<div class="cart-item">
 
-                                <div style="text-align:left;">
-                                    <div style="display:flex; align-items:center; gap:0.5em;">
-                                        <strong><?= htmlspecialchars($item['name']) ?></strong>
+<div class="cart-image">
+<img src="images/<?= htmlspecialchars($item['image']) ?>" alt="">
+</div>
 
-                                        <form method="post" action="cart_review.php">
-                                            <input type="hidden" name="action" value="delete">
-                                            <input type="hidden" name="index" value="<?= $i ?>">
-                                            <button type="submit"
-                                                style="border:none; background:none; font-size:1.2em; cursor:pointer; color:#A78BBE;">
-                                                ✕
-                                            </button>
-                                        </form>
-                                    </div>
+<div class="cart-details">
+<div class="cart-title-row">
+<strong><?= htmlspecialchars($item['name']) ?></strong>
+<form method="post">
+<input type="hidden" name="action" value="delete">
+<input type="hidden" name="index" value="<?= $i ?>">
+<button class="cart-remove">✕</button>
+</form>
+</div>
 
-                                    <div style="color:#888; font-size:0.9em;"><?= $item['weight'] ?></div>
-                                    <div style="color:#777;">$<?= number_format($item['price'],2) ?></div>
-                                </div>
+<div class="cart-meta"><?= htmlspecialchars($item['weight']) ?></div>
+<div class="cart-price">$<?= number_format($item['price'],2) ?></div>
 
-                            </div>
-                        </td>
+<form method="post" class="cart-qty">
+<input type="hidden" name="action" value="update">
+<input type="hidden" name="index" value="<?= $i ?>">
+<select name="qty" onchange="this.form.submit()">
+<?php for($q=1;$q<=10;$q++): ?>
+<option value="<?= $q ?>" <?= $q==$item['qty']?'selected':'' ?>><?= $q ?></option>
+<?php endfor; ?>
+</select>
+</form>
+</div>
 
-                        <td>
-                            <form method="post" action="cart_review.php">
-                                <input type="hidden" name="action" value="update">
-                                <input type="hidden" name="index" value="<?= $i ?>">
-                                <select name="qty" onchange="this.form.submit()">
-                                    <?php for($q=1; $q<=10; $q++): ?>
-                                        <option value="<?= $q ?>" <?= $q==$item['qty']?'selected':'' ?>>
-                                            <?= $q ?>
-                                        </option>
-                                    <?php endfor; ?>
-                                </select>
-                            </form>
-                        </td>
+<div class="cart-line-total">
+$<?= number_format($item['price']*$item['qty'],2) ?>
+</div>
 
-                        <td>$<?= number_format($item['price'] * $item['qty'], 2) ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
+</div>
+<?php endforeach; ?>
 
-            <tfoot>
-                <tr><td colspan="3"><hr></td></tr>
+</div>
 
-                <tr>
-                    <td></td>
-                    <th style="text-align:right;">Subtotal</th>
-                    <th>$<?= number_format($subtotal, 2) ?></th>
-                </tr>
+<!-- ORDER SUMMARY -->
+<div class="cart-summary">
+<div><span>Subtotal</span><span>$<?= number_format($subtotal,2) ?></span></div>
+<div><span>Tax (6%)</span><span>$<?= number_format($tax,2) ?></span></div>
+<div class="cart-grand">
+<span>Grand Total</span>
+<span>$<?= number_format($total,2) ?></span>
+</div>
+</div>
 
-                <tr>
-                    <td></td>
-                    <th style="text-align:right;">Tax (6%)</th>
-                    <th>$<?= number_format($tax, 2) ?></th>
-                </tr>
+<div style="margin-top:2rem;">
+<button class="button" onclick="location.href='cart_checkout.php'">Proceed to Checkout</button>
+ 
+</div>
 
-                <tr>
-                    <td></td>
-                    <th style="text-align:right;">Grand Total</th>
-                    <th>$<?= number_format($total, 2) ?></th>
-                </tr>
-            </tfoot>
-        </table>
-
-        <div style="margin-top: 2em;">
-            <button class="button" onclick="window.location.href='cart_checkout.php'">Proceed to Checkout</button>
-            <button class="button button-secondary" onclick="window.location.href='blends.php'">Continue Shopping</button>
-        </div>
-
-    <?php endif; ?>
+<?php endif; ?>
 </main>
 
-<!--  SUGGESTIONs   -->
-<section class="container" style="margin-top:4rem; margin-bottom:4rem;">
-    <h3 style="font-family:var(--font-serif); text-align:center;">
-        You may also like
-    </h3>
-
- 
-
-    <ul class="grid grid-4" style="padding:0;">
-        <?php 
-            $result = makeQuery(makeConn(), "SELECT * FROM products ORDER BY RAND() LIMIT 4");
-            echo array_reduce($result, "productListTemplate");
-        ?>
-    </ul>
-</section>
-
-<?php include __DIR__ . "/parts/footer.php"; ?>
+<?php include "parts/footer.php"; ?>

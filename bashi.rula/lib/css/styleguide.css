@@ -886,11 +886,173 @@ button,
 /* --- Prevent horizontal overflow --- */
 @media (max-width: 768px) {
     html, body {
-        overflow-x: scroll; !important;
+        overflow-x: hidden !important; /* to prevent sideways scroll */
+        overflow-y: auto; /* to keep vertical scroll */
+    }
+}
+
+
+/* Desktop Parallax */
+@media (min-width: 769px) {
+    .view-window {
+        background-attachment: fixed !important;
+    }
+}
+
+/* Mobile — this would help to disable parallax to avoid iPhone zoom bug */
+@media (max-width: 768px) {
+    .view-window {
+        background-attachment: scroll !important;
     }
 }
 
 
 
 
+
+
+
+
+
+
+/*  ----------- CART LAYOUT ----------- */
+
+.cart-list {
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+  align-items: start;
+}
+
+.cart-image img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.cart-details {
+  text-align: left;
+}
+
+.cart-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-remove {
+  border: none;
+  background: none;
+  font-size: 1.2em;
+  color: #A78BBE;
+  cursor: pointer;
+}
+
+.cart-meta {
+  color: #888;
+  font-size: 0.9em;
+}
+
+.cart-price {
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.cart-qty select {
+  margin-top: 0.5rem;
+}
+
+.cart-line-total {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/*  -----------  TOTALS  ------------- */
+
+.cart-summary {
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.cart-summary div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.cart-grand {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* -----------   MOBILE  ----------- */
+@media (max-width: 768px) {
+
+  .cart-item {
+    grid-template-columns: auto 1fr;
+  }
+
+  .cart-line-total {
+    display: none;
+  }
+
+  .cart-summary {
+    text-align: left;
+  }
+
+  /* ----------- FULL-WIDTH BUTTONS ----------- */
+  .button,
+  .button-secondary {
+    width: 100%;
+    margin: 0.5em 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*  button text sizing */
+
+/* Default (desktop) */
+.button,
+.button-secondary,
+.cta-button {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Mobile  */
+@media (max-width: 768px) {
+  .button,
+  .button-secondary,
+  .cta-button {
+    font-size: 18px;     
+    font-weight: 500;
+    padding: 10px 18px;   
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .button,
+  .button-secondary,
+  .cta-button {
+    font-size: 18px;
+  }
+}
 

@@ -34,6 +34,9 @@ include "parts/navbar.php";
          alt="<?= htmlspecialchars($product->name) ?>"
          style="max-width:400px; display:block; margin:1em auto;">
 
+
+
+
     <!-- PRICE -->
     <p><strong>Price:</strong>
       <span class="product-price" data-base="<?= $product->price ?>">
@@ -48,7 +51,11 @@ include "parts/navbar.php";
       <input type="hidden" name="id" value="<?= (int)$product->id ?>">
       <input type="hidden" name="name" value="<?= htmlspecialchars($product->name) ?>">
 
-      <!-- This hidden field will be updated by JS -->
+
+
+
+
+      <!-- hidden field that will be updated by JS -->
       <input type="hidden" id="dynamic-price" name="price" value="<?= $product->price ?>">
 
       <input type="hidden" name="image" value="<?= htmlspecialchars($product->images) ?>">
@@ -69,11 +76,16 @@ include "parts/navbar.php";
       <div class="product-button-row" style="display:flex; justify-content:center; gap:1em;">
 
         <button class="button" type="submit">Add to Cart</button>
-        <button class="button button-secondary" type="button" onclick="window.location.href='blends.php'">Back to Store</button>
+ 
       </div>
     </form>
   </div>
 </div>
+
+
+
+
+
 
 <!-- SIMPLE FIXED PRICE SCRIPT (+$5 RULE) -->
 <script>

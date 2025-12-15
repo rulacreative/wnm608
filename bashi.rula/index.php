@@ -1,6 +1,8 @@
 <?php include "parts/meta.php"; ?>
 <?php include "parts/navbar.php"; ?>
 
+
+
 <!-- HERO SECTION -->
 <div class="view-window" style="background-image:url('images/velora-store.png')">
   <div class="view-overlay">
@@ -10,57 +12,63 @@
   </div>
 </div>
 
+
+
 <!-- SHOP BY CATEGORY -->
 <section id="blends" class="container">
   <h2>Shop by Category</h2>
 
   <ul class="grid grid-3">
 
-    <!-- CATEGORY 1 -->
-    <li class="card">
-      <a href="blends.php">
-        <img alt="Calming Blends" src="images/face.png">
-        <h3>Calming Blends</h3>
-      </a>
-    </li>
 
-    <!-- CATEGORY 2 -->
-    <li class="card">
-      <a href="blends.php">
-        <img alt="Focus Blends" src="images/body.png">
-        <h3>Focus Blends</h3>
-      </a>
-    </li>
+            <!-- CATEGORY 1 --><!-- CATEGORY 1: Calming -->
+        <li class="card">
+          <a href="blends.php?category=Calming Blends">
+            <img alt="Calming Blends" src="images/face.png">
+            <h3>Calming Blends</h3>
+          </a>
+        </li>
 
-    <!-- CATEGORY 3 -->
-    <li class="card">
-      <a href="blends.php">
-        <img alt="Digestive Blends" src="images/kits.png">
-        <h3>Digestive Blends</h3>
-      </a>
-    </li>
+        <!-- CATEGORY 2: Focus -->
+        <li class="card">
+          <a href="blends.php?category=Focus Blends">
+            <img alt="Focus Blends" src="images/body.png">
+            <h3>Focus Blends</h3>
+          </a>
+        </li>
 
-  </ul>
-</section>
+        <!-- CATEGORY 3: Digestive -->
+        <li class="card">
+          <a href="blends.php?category=Digestive Blends">
+            <img alt="Digestive Blends" src="images/kits.png">
+            <h3>Digestive Blends</h3>
+          </a>
+        </li>
+
+ 
+
+        </ul>
+      </section>
 
 <!-- PROMO BAND -->
 <section id="discounts" class="promo-band">
   <p><strong>Autumn Offer:</strong> 20% off selective sets — code 
-    <code>FALL20</code> → <a href="index.php">Shop Discounts</a>
+    <code>FALL20</code> → <a href="blends.php?discount=1">Shop Discounts</a>
+
   </p>
 </section>
 
 <!-- FEATURED PRODUCTS -->
 
-
-
-
-
-
+ 
 <section class="container">
   <h2>Featured Products</h2>
 
 <?php
+
+
+
+
 // Load newest 4 products from the database
 $featured = makeQuery(makeConn(), "
     SELECT * FROM products ORDER BY id ASC LIMIT 4
@@ -91,11 +99,7 @@ $featured = makeQuery(makeConn(), "
 
 
 
-
-
-
-
-
+ 
 
 
 <!-- ABOUT SECTION -->
@@ -113,6 +117,8 @@ $featured = makeQuery(makeConn(), "
     <a class="button button-secondary about-btn" href="about.php">Learn More</a>
   </div>
 </section>
+
+
 
 <!-- NEWSLETTER -->
 <section class="container newsletter" aria-labelledby="news-h">

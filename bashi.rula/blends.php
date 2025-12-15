@@ -14,6 +14,8 @@
   </div>
 </div>
 
+
+
 <!-- SEARCH + FILTERS BAR -->
 <section class="container" style="margin-top:2em;">
   <div class="flex-center" style="display:flex; gap:1em; align-items:center; flex-wrap:wrap;">
@@ -34,7 +36,7 @@
       <option value="highlow">Price: High → Low</option>
     </select>
 
-x
+
     <select
       id="category-select"
       style="padding:1em; border-radius:8px; border:1px solid #ccc; font-size:1.1em;">
@@ -72,17 +74,61 @@ x
 
   <ul id="product-list" class="grid grid-4">
     <?php
-      $products = makeQuery(makeConn(), "SELECT * FROM products ORDER BY id ASC");
+     
+
+
+     $category = $_GET['category'] ?? null;
+
+        $filter_map = [
+          "Calming Blends" => ["Lavender Calm", "Chamomile Dream"],
+          "Focus Blends"   => ["Mint Focus"],
+          "Digestive Blends" => ["Ginger Digest"]
+        ];
+
+        if ($category && isset($filter_map[$category])) {
+
+
+
+
+ // Create SQL IN list
+            $names = $filter_map[$category];
+            $names_in = "'" . implode("','", $names) . "'";
+            $query = "SELECT * FROM products WHERE name IN ($names_in)";
+        } else {
+
+
+// Default: show all products
+            $query = "SELECT * FROM products ORDER BY id ASC";
+        }
+
+        $products = makeQuery(makeConn(), $query);
+
+ 
 
       foreach($products as $p) {
-        // Normalize safely for HTML & JS
+
+
+
+// Normalize safely for HTML & JS
         $name      = htmlspecialchars($p->name, ENT_QUOTES);
         $desc      = htmlspecialchars($p->description, ENT_QUOTES);
         $price_raw = (float)$p->price;
-        $price     = number_format($price_raw, 2);
+
+
+
+// SIMPLE DISCOUNT: apply 20% off when ?discount=1
+          if (isset($_GET['discount']) && $_GET['discount'] == 1) {
+              $price_raw = $price_raw * 0.80;  // apply 20% discount
+          }
+
+          $price = number_format($price_raw, 2);
+
         $thumb     = htmlspecialchars($p->thumbnail, ENT_QUOTES);
 
-        // SLUGGED CATEGORY: this removes spaces/case issues from DB
+
+
+
+// SLUGGED CATEGORY: to removes spaces/case issues from DB
         $cat_slug  = strtolower(trim($p->category));
 
         echo "
