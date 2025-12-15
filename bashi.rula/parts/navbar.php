@@ -16,7 +16,7 @@ $cart_count = getCartCount();
 
     <nav class="flex-none nav">
       <ul class="display-flex">
-        <li><a href="/aau/wnm608/bashi.rula/index.php">Home</a></li>
+
         <li><a href="/aau/wnm608/bashi.rula/blends.php">Blends</a></li>
         <li><a href="/aau/wnm608/bashi.rula/about.php">About</a></li>
           

@@ -64,7 +64,7 @@ box-sizing: border-box;
 
 .view-window {
   position: relative;
-  height: 70vh;  
+  height: 60vh;  
   background-attachment: scroll;  /* This is to prevents zoom-cut issue on my phone */
   background-size: cover;
   background-position: center;
